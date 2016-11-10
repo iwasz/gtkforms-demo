@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans init-method="init" id-method="contId">
+
+    <Config id="config">
+        <value set-as="logMappings">true</value>
+        <value set-as="useWidgetId">true</value>
+    </Config>
+
+  <!-- +===================================================+ -->
+  <!-- | Kontrolery i widoki                               | -->
+  <!-- +===================================================+ -->
+
+  <DummyController id="mainController" view="mainView" />
+  <BuilderView id="mainView" file="ui/main.ui" />
+
+  <!-- +===================================================+ -->
+
+  <DummyController id="infoController" view="infoView" />
+  <BuilderView id="infoView" file="ui/main.ui" />
+
+  <!-- +===================================================+ -->
+
+  <MainController id="submitTest1Controller" />
+
+  <BuilderView id="submitTest1View" file="ui/main.ui" >
+        <Mapping add-to="mappings" widget="button" model="model.happy" />
+        <Mapping add-to="mappings" widget="myButton" model="model.happy" />
+        <Mapping add-to="mappings" widget="myButton" model="model.firstname" property="label" />
+  </BuilderView>
+
+  <!-- +===================================================+ -->
+
+  <DummyController id="otherMainController" view="otherMainView" />
+  <BuilderView id="otherMainView" file="ui/main.ui" />
+
+  <!-- +===================================================+ -->
+
+  <DummyController id="wizardContainerController" view="wizardContainerView" alsoOpen="wizardPage1Controller" />
+  <BuilderView id="wizardContainerView" file="ui/main.ui" />
+
+  <DummyController id="wizardPage1Controller" view="wizardPage1View->wizardSlot" />
+  <BuilderView id="wizardPage1View" file="ui/main.ui" />
+
+  <DummyController id="wizardPage2Controller" view="wizardPage2View->wizardSlot" />
+  <BuilderView id="wizardPage2View" file="ui/main.ui" />
+
+  <DummyController id="wizardPage3Controller" view="wizardPage3View->wizardSlot" />
+  <BuilderView id="wizardPage3View" file="ui/main.ui" />
+
+  <!-- +===================================================+ -->
+
+  <DummyController id="tabController" view="tabView" />
+  <BuilderView id="tabView" file="ui/main.ui" />
+
+</beans>
