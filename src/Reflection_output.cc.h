@@ -14,6 +14,43 @@ using namespace Reflection;
 void createReflectionDatabase_gtkFormsDemo ()
 {
 	{
+		Class *clazz = new Class ("User", typeid (User &), new Reflection::PtrDeleter <User>);
+		if (!Manager::add (clazz)) {
+			delete clazz;
+		}
+		else {
+			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <User, void>::Level1Wrapper::newConstructorPointer ()));
+			clazz->addField (new Field ("firstname", Reflection::createFieldWrapper (&User::firstname)));
+			clazz->addField (new Field ("lastname", Reflection::createFieldWrapper (&User::lastname)));
+			clazz->addField (new Field ("age", Reflection::createFieldWrapper (&User::age)));
+			clazz->addField (new Field ("occupation", Reflection::createFieldWrapper (&User::occupation)));
+			clazz->addField (new Field ("happy", Reflection::createFieldWrapper (&User::happy)));
+			clazz->addMethod (new Method ("toString", createMethodWrapper (&User::toString)));
+		}
+	}
+	{
+		Class *clazz = new Class ("UserVector", typeid (UserVector&), new PtrDeleter <UserVector >);
+		if (!Manager::add (clazz)) {;
+			delete clazz;
+		}
+		else { 
+			IConstructorPointer *cp = Reflection::ConstructorPointerWrapper2 <UserVector, void>::Level1Wrapper::newConstructorPointer ();
+			clazz->addConstructor (new Constructor (cp));
+
+			ICallableWrapper *w = new AddWrapper <UserVector > ();
+			clazz->addMethod (new Method ("add", w));
+
+			w = new GetWrapper <UserVector > ();
+			clazz->addMethod (new Method ("get", w));
+
+			w = new SetWrapper <UserVector > ();
+			clazz->addMethod (new Method ("set", w));
+
+			w = new IteratorWrapper <UserVector > ();
+			clazz->addMethod (new Method ("iterator", w));
+		}
+	}
+	{
 		Class *clazz = new Class ("Object", typeid (Core::Object &), new Reflection::PtrDeleter <Core::Object>);
 		if (!Manager::add (clazz)) {
 			delete clazz;
@@ -274,31 +311,30 @@ void createReflectionDatabase_gtkFormsDemo ()
 		}
 	}
 	{
-		Class *clazz = new Class ("MainController", typeid (MainController &), new Reflection::PtrDeleter <MainController>);
+		Class *clazz = new Class ("SubmitTest1Controller", typeid (SubmitTest1Controller &), new Reflection::PtrDeleter <SubmitTest1Controller>);
 		if (!Manager::add (clazz)) {
 			delete clazz;
 		}
 		else {
 			clazz->addBaseClassName ("AbstractController");
-			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <MainController, void>::Level1Wrapper::newConstructorPointer ()));
-			clazz->addMethod (new Method ("onStart", createMethodWrapper (&MainController::onStart)));
-			clazz->addMethod (new Method ("onSubmit", createMethodWrapper (&MainController::onSubmit)));
-			clazz->addMethod (new Method ("onIdle", createMethodWrapper (&MainController::onIdle)));
-			clazz->addMethod (new Method ("onStop", createMethodWrapper (&MainController::onStop)));
+			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <SubmitTest1Controller, void>::Level1Wrapper::newConstructorPointer ()));
+			clazz->addMethod (new Method ("onStart", createMethodWrapper (&SubmitTest1Controller::onStart)));
+			clazz->addMethod (new Method ("onSubmit", createMethodWrapper (&SubmitTest1Controller::onSubmit)));
+			clazz->addMethod (new Method ("onIdle", createMethodWrapper (&SubmitTest1Controller::onIdle)));
+			clazz->addMethod (new Method ("onStop", createMethodWrapper (&SubmitTest1Controller::onStop)));
 		}
 	}
 	{
-		Class *clazz = new Class ("User", typeid (User &), new Reflection::PtrDeleter <User>);
+		Class *clazz = new Class ("TreeView1Controller", typeid (TreeView1Controller &), new Reflection::PtrDeleter <TreeView1Controller>);
 		if (!Manager::add (clazz)) {
 			delete clazz;
 		}
 		else {
-			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <User, void>::Level1Wrapper::newConstructorPointer ()));
-			clazz->addField (new Field ("firstname", Reflection::createFieldWrapper (&User::firstname)));
-			clazz->addField (new Field ("lastname", Reflection::createFieldWrapper (&User::lastname)));
-			clazz->addField (new Field ("occupation", Reflection::createFieldWrapper (&User::occupation)));
-			clazz->addField (new Field ("happy", Reflection::createFieldWrapper (&User::happy)));
-			clazz->addMethod (new Method ("toString", createMethodWrapper (&User::toString)));
+			clazz->addBaseClassName ("AbstractController");
+			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <TreeView1Controller, void>::Level1Wrapper::newConstructorPointer ()));
+			clazz->addMethod (new Method ("onStart", createMethodWrapper (&TreeView1Controller::onStart)));
+			clazz->addMethod (new Method ("getUsers", createMethodWrapper (&TreeView1Controller::getUsers)));
+			clazz->addMethod (new Method ("setUsers", createMethodWrapper (&TreeView1Controller::setUsers)));
 		}
 	}
 }

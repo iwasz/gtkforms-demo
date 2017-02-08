@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+  <SubmitTest1Controller id="submitTest1Controller" />
+
+  <BuilderView id="submitTest1View" file="src/submitTest1/submitTest1View.ui" >
+        <Mapping add-to="mappings" widget="button" model="model.happy" />
+        <Mapping add-to="mappings" widget="myButton" model="model.happy" />
+        <Mapping add-to="mappings" widget="myButton" model="model.firstname" property="label" />
+  </BuilderView>
+</beans>

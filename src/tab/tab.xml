@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+  <DummyController id="tabController" view="tabView" />
+  <BuilderView id="tabView" file="src/tab/tabView.ui" />
+</beans>

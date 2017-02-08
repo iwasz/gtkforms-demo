@@ -6,21 +6,23 @@
  *  ~~~~~~~~~                                                               *
  ****************************************************************************/
 
-#include <GtkForms.h>
-#include <Tiliae.h>
-#include <gtk/gtk.h>
+#ifndef TREE_VIEW1_CONTROLLER_H_
+#define TREE_VIEW1_CONTROLLER_H_
 
-//// TODO czemu to musi tu być? Czemu tiliaeparser zamienia bool na to _Bool?
-#define _Bool bool
-#include "Reflection_output.cc.h"
-#include "Reflection_output_gtkforms.cc.h"
-#include "Reflection_output_tiliae.cc.h"
+#include "common/User.h"
+#include <controller/AbstractController.h>
 
-int main (int argc, char **argv)
-{
-        srand (time (0));
-        gtk_init (&argc, &argv);
-        GtkForms::App app;
-        app.init ("config.xml", "mainController");
-        gtk_main ();
-}
+class __tiliae_reflect__ TreeView1Controller : public GtkForms::AbstractController {
+public:
+        virtual ~TreeView1Controller () {}
+
+        virtual std::string onStart ();
+
+        UserVector &getUsers () { return users; }
+        void setUsers (const UserVector &value) { users = value; }
+
+private:
+        UserVector users;
+};
+
+#endif /* TreeView1Controller_H_ */

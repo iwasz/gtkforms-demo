@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+  <DummyController id="mainController" view="mainView" />
+  <BuilderView id="mainView" file="ui/main.ui" />
+</beans>

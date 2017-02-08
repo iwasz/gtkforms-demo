@@ -6,17 +6,17 @@
  *  ~~~~~~~~~                                                               *
  ****************************************************************************/
 
-#ifndef MAIN_CONTROLLER_H_
-#define MAIN_CONTROLLER_H_
+#ifndef SUBMIT_TEST1_CONTROLLER_H_
+#define SUBMIT_TEST1_CONTROLLER_H_
 
 #include <string>
 #include <controller/AbstractController.h>
 #include <ReflectionParserAnnotation.h>
 
-class __tiliae_reflect__ MainController : public GtkForms::AbstractController {
+class __tiliae_reflect__ SubmitTest1Controller : public GtkForms::AbstractController {
 public:
-        MainController () {}
-        virtual ~MainController () {}
+        SubmitTest1Controller () {}
+        virtual ~SubmitTest1Controller () {}
 
         virtual std::string onStart ();
         virtual void onSubmit ();
@@ -24,4 +24,4 @@ public:
         virtual void onStop ();
 };
 
-#endif /* MainController_H_ */
+#endif /* Submittest1Controller_H_ */

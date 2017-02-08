@@ -66,12 +66,16 @@ LIST (APPEND SOURCES "src/Reflection_output.cc.h")
 # | Main target                   |
 # +-------------------------------+
 
-LIST (APPEND SOURCES "src/model/User.h")
-LIST (APPEND SOURCES "src/model/User.cc")
-LIST (APPEND SOURCES "src/main.cc")
-LIST (APPEND SOURCES "src/Logging.h")
-LIST (APPEND SOURCES "src/controller/MainController.cc")
-LIST (APPEND SOURCES "src/controller/MainController.h")
+LIST (APPEND SOURCES
+        "src/common/User.h"
+        "src/common/User.cc"
+        "src/main.cc"
+        "src/Logging.h"
+        "src/submitTest1/SubmitTest1Controller.cc"
+        "src/submitTest1/SubmitTest1Controller.h"
+        "src/treeView1/TreeView1Controller.cc"
+        "src/treeView1/TreeView1Controller.h"
+)
 
 # Local includes (inside project).
 INCLUDE_DIRECTORIES (src)
@@ -97,3 +101,7 @@ ADD_CUSTOM_COMMAND (OUTPUT "${CMAKE_BINARY_DIR}/config.xml"
 ADD_CUSTOM_COMMAND (OUTPUT "${CMAKE_BINARY_DIR}/ui"
                     COMMAND ln -s "ui" "${CMAKE_BINARY_DIR}/ui"
                     DEPENDS "ui")
+
+ADD_CUSTOM_COMMAND (OUTPUT "${CMAKE_BINARY_DIR}/src"
+                    COMMAND ln -s "src" "${CMAKE_BINARY_DIR}/src"
+                    DEPENDS "src")
