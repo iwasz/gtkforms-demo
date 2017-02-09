@@ -24,3 +24,9 @@ int main (int argc, char **argv)
         app.init ("config.xml", "mainController");
         gtk_main ();
 }
+
+/*
+ * - Wszystkie typy wariantów -> zwykła kolumna z GtkCellRendererText
+ * - Różne typy wariantów, ale mapowanie na inne właściwości (bold, strike etc).
+ * - Inne renderery.
+ */

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans>
   <TreeView1Controller id="treeView1Controller">
-  <User add-to="users" firstname="Łukasz" lastname="Iwaszkiewicz" age="35" />
-  <User add-to="users" firstname="Franio" lastname="Iwaszkiewicz" age="5" />
-  <User add-to="users" firstname="Joanna" lastname="Szenajch-Iwaszkiewicz" age="35" />
+    <User add-to="users" firstname="Łukasz" lastname="Iwaszkiewicz" age="35" />
+    <User add-to="users" firstname="Franio" lastname="Iwaszkiewicz" age="5" />
+    <User add-to="users" firstname="Joanna" lastname="Szenajch-Iwaszkiewicz" age="35" />
   </TreeView1Controller>
 
   <BuilderView id="treeView1View" file="src/treeView1/treeView1View.ui" loadWholeFile="true">
-    <TableMapping add-to="mappings" widget="treeView" model="myModel">
+    <TableMapping add-to="mappings" widget="myUsers" model="myUsers">
       <Column add-to="columns" model="firstname" />
       <Column add-to="columns" model="lastname" />
       <Column add-to="columns" model="age" />

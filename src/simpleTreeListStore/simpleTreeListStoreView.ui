@@ -12,7 +12,18 @@
       <column type="gint"/>
     </columns>
   </object>
-  <object class="GtkWindow" id="treeView1View">
+  <object class="GtkListStore" id="liststore2"/>
+  <object class="GtkTreeStore" id="treestore1">
+    <columns>
+      <!-- column-name gchararray1 -->
+      <column type="gchararray"/>
+      <!-- column-name gchararray2 -->
+      <column type="gchararray"/>
+      <!-- column-name gint1 -->
+      <column type="gint"/>
+    </columns>
+  </object>
+  <object class="GtkWindow" id="simpleTreeListStoreView">
     <property name="can_focus">False</property>
     <property name="window_position">center</property>
     <child>
@@ -28,12 +39,7 @@
             <property name="margin_right">5</property>
             <property name="margin_top">5</property>
             <property name="margin_bottom">5</property>
-            <property name="label" translatable="yes">Simple example of mapping std::vector &lt;User *&gt; of objects into GtkTreeView. User has (among others) fields 
-- std::string firstname,
-- std::string lastname,
-- int age.
-
-PS. remember, that ListStore column names in Glade can't be read from C/C++, as they are stored as XML comments in glade files, so you can even leave them blank.</property>
+            <property name="label" translatable="yes">aaa</property>
             <property name="wrap">True</property>
           </object>
           <packing>
@@ -47,7 +53,7 @@ PS. remember, that ListStore column names in Glade can't be read from C/C++, as 
             <property name="height_request">364</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="model">liststore1</property>
+            <property name="model">treestore1</property>
             <child internal-child="selection">
               <object class="GtkTreeSelection"/>
             </child>

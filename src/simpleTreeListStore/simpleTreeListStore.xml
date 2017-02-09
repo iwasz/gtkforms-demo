@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+  <DummyController id="simpleTreeListStoreController" view="simpleTreeListStoreView">
+    <UserVector set-as="model">
+      <User firstname="Łukasz" lastname="Iwaszkiewicz" age="35">
+        <User add-to="friends" firstname="Michałek" lastname="Tuńczyk" age="35" />
+        <User add-to="friends" firstname="Tomuś" lastname="Tomo" age="5" />
+        <User add-to="friends" firstname="Wujek" lastname="Nowy" age="35" />
+      </User>
+
+      <User firstname="Franio" lastname="Iwaszkiewicz" age="5">
+        <User add-to="friends" firstname="Maciuś" lastname="Aski" age="5" />
+        <User add-to="friends" firstname="Olaf" lastname="Bski" age="5" />
+        <User add-to="friends" firstname="Kuba" lastname="Cski" age="5" />
+      </User>
+
+      <User firstname="Joanna" lastname="Szenajch-Iwaszkiewicz" age="35">
+        <User add-to="friends" firstname="Zuzia" lastname="Zuziowa" age="35" />
+        <User add-to="friends" firstname="Renia" lastname="Reniowa" age="35" />
+        <User add-to="friends" firstname="Dominika" lastname="Dska" age="35" />
+      </User>
+    </UserVector>
+  </DummyController>
+
+  <BuilderView id="simpleTreeListStoreView" file="src/simpleTreeListStore/simpleTreeListStoreView.ui" loadWholeFile="true">
+    <TableMapping add-to="mappings" widget="myUsers" model="model">
+      <Column add-to="columns" model="firstname" />
+      <Column add-to="columns" model="lastname" />
+      <Column add-to="columns" model="age" />
+      <TableMapping add-to="columns" widget="myUsers" model="friends">
+        <Column add-to="columns" model="firstname" />
+        <Column add-to="columns" model="lastname" />
+        <Column add-to="columns" model="age" />
+      </TableMapping>
+    </TableMapping>
+  </BuilderView>
+</beans>

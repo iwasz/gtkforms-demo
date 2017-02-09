@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+  <DummyController id="cellRenderersController" view="cellRenderersView">
+    <VariantVector set-as="model">
+      <VariantMap>
+        <value set-as="text">Franio</value>
+        <value set-as="accel" type="unsigned int">97</value>
+        <value set-as="combo">combo</value>
+        <value set-as="spin" type="int">24</value>
+        <value set-as="progress" type="int">25</value>
+        <value set-as="spinner" type="int">26</value>
+        <value set-as="toggle" type="bool">true</value>
+      </VariantMap>
+
+      <VariantMap>
+        <value set-as="text">Iwasz</value>
+        <value set-as="accel" type="unsigned int">98</value>
+        <value set-as="combo">combo</value>
+        <value set-as="spin" type="int">33</value>
+        <value set-as="progress" type="int">34</value>
+        <value set-as="spinner" type="int">35</value>
+        <value set-as="toggle" type="bool">false</value>
+      </VariantMap>
+
+      <VariantMap>
+        <value set-as="text">Asia</value>
+        <value set-as="accel" type="unsigned int">99</value>
+        <value set-as="combo">combo</value>
+        <value set-as="spin" type="int">45</value>
+        <value set-as="progress" type="int">46</value>
+        <value set-as="spinner" type="int">47</value>
+        <value set-as="toggle" type="bool">true</value>
+      </VariantMap>
+    </VariantVector>
+  </DummyController>
+
+  <BuilderView id="cellRenderersView" file="src/cellRenderers/cellRenderersView.ui" loadWholeFile="true">
+    <TableMapping add-to="mappings" widget="treeView" model="model">
+      <Column add-to="columns" model="text"/>
+      <Column add-to="columns" model="accel"/>
+      <Column add-to="columns" model="combo"/>
+      <Column add-to="columns" model="spin"/>
+      <Column add-to="columns" model="progress"/>
+      <Column add-to="columns" model="spinner"/>
+      <Column add-to="columns" model="toggle"/>
+    </TableMapping>
+  </BuilderView>
+</beans>

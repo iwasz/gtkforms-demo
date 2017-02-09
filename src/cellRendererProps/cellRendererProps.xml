@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+  <DummyController id="cellRendererPropsController" view="cellRendererPropsView">
+    <VariantVector set-as="model">
+      <VariantMap>
+        <value set-as="name">Franio</value>
+        <value set-as="background">green</value>
+        <value set-as="foreground">red</value>
+        <value set-as="fontSize" type="int">24</value>
+        <value set-as="strike" type="bool">true</value>
+      </VariantMap>
+
+      <VariantMap>
+        <value set-as="name">Iwasz</value>
+        <value set-as="background">red</value>
+        <value set-as="foreground">yellow</value>
+        <value set-as="fontSize" type="int">18</value>
+        <value set-as="strike" type="bool">false</value>
+      </VariantMap>
+
+      <VariantMap>
+        <value set-as="name">Asia</value>
+        <value set-as="background">magenta</value>
+        <value set-as="foreground">silver</value>
+        <value set-as="fontSize" type="int">16</value>
+        <value set-as="strike" type="bool">true</value>
+      </VariantMap>
+    </VariantVector>
+  </DummyController>
+
+  <BuilderView id="cellRendererPropsView" file="src/cellRendererProps/cellRendererPropsView.ui" loadWholeFile="true">
+    <TableMapping add-to="mappings" widget="treeView" model="model">
+      <Column add-to="columns" model="name"/>
+      <Column add-to="columns" model="background"/>
+      <Column add-to="columns" model="foreground"/>
+      <Column add-to="columns" model="fontSize"/>
+      <Column add-to="columns" model="strike"/>
+    </TableMapping>
+  </BuilderView>
+</beans>

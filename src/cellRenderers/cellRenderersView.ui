@@ -4,15 +4,23 @@
   <requires lib="gtk+" version="3.20"/>
   <object class="GtkListStore" id="liststore1">
     <columns>
-      <!-- column-name firstname -->
+      <!-- column-name text -->
       <column type="gchararray"/>
-      <!-- column-name lastname -->
+      <!-- column-name accel -->
+      <column type="guint"/>
+      <!-- column-name gchararray3 -->
       <column type="gchararray"/>
-      <!-- column-name age -->
+      <!-- column-name gint1 -->
       <column type="gint"/>
+      <!-- column-name gint2 -->
+      <column type="gint"/>
+      <!-- column-name gint3 -->
+      <column type="gint"/>
+      <!-- column-name gboolean1 -->
+      <column type="gboolean"/>
     </columns>
   </object>
-  <object class="GtkWindow" id="treeView1View">
+  <object class="GtkWindow" id="cellRenderersView">
     <property name="can_focus">False</property>
     <property name="window_position">center</property>
     <child>
@@ -28,13 +36,7 @@
             <property name="margin_right">5</property>
             <property name="margin_top">5</property>
             <property name="margin_bottom">5</property>
-            <property name="label" translatable="yes">Simple example of mapping std::vector &lt;User *&gt; of objects into GtkTreeView. User has (among others) fields 
-- std::string firstname,
-- std::string lastname,
-- int age.
-
-PS. remember, that ListStore column names in Glade can't be read from C/C++, as they are stored as XML comments in glade files, so you can even leave them blank.</property>
-            <property name="wrap">True</property>
+            <property name="label" translatable="yes">Various cell renderers (columns are not editable).</property>
           </object>
           <packing>
             <property name="expand">True</property>
@@ -43,7 +45,7 @@ PS. remember, that ListStore column names in Glade can't be read from C/C++, as 
           </packing>
         </child>
         <child>
-          <object class="GtkTreeView" id="&gt;myUsers">
+          <object class="GtkTreeView" id="&gt;treeView">
             <property name="height_request">364</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -54,12 +56,11 @@ PS. remember, that ListStore column names in Glade can't be read from C/C++, as 
             <child>
               <object class="GtkTreeViewColumn">
                 <property name="resizable">True</property>
-                <property name="title" translatable="yes">Firstname</property>
+                <property name="title" translatable="yes">Text</property>
                 <child>
                   <object class="GtkCellRendererText" id="cellrenderertext4">
                     <property name="width">80</property>
                     <property name="height">36</property>
-                    <property name="xpad">18</property>
                   </object>
                   <attributes>
                     <attribute name="text">0</attribute>
@@ -70,33 +71,60 @@ PS. remember, that ListStore column names in Glade can't be read from C/C++, as 
             <child>
               <object class="GtkTreeViewColumn">
                 <property name="resizable">True</property>
-                <property name="min_width">200</property>
-                <property name="title" translatable="yes">Lastname</property>
+                <property name="title" translatable="yes">Accel</property>
                 <child>
-                  <object class="GtkCellRendererText" id="cellrenderertext1">
+                  <object class="GtkCellRendererAccel" id="cellrenderertext">
                     <property name="width">80</property>
                     <property name="height">36</property>
-                    <property name="xpad">18</property>
                   </object>
                   <attributes>
-                    <attribute name="text">1</attribute>
+                    <attribute name="accel-key">1</attribute>
                   </attributes>
                 </child>
               </object>
             </child>
             <child>
               <object class="GtkTreeViewColumn">
-                <property name="sizing">fixed</property>
-                <property name="max_width">100</property>
-                <property name="title" translatable="yes">Age</property>
+                <property name="resizable">True</property>
+                <property name="title" translatable="yes">Progress</property>
                 <child>
-                  <object class="GtkCellRendererText" id="cellrenderertext2">
+                  <object class="GtkCellRendererProgress" id="cellrenderertext3">
                     <property name="width">80</property>
                     <property name="height">36</property>
-                    <property name="xpad">18</property>
                   </object>
                   <attributes>
-                    <attribute name="text">2</attribute>
+                    <attribute name="value">4</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn">
+                <property name="resizable">True</property>
+                <property name="title" translatable="yes">Spinner</property>
+                <child>
+                  <object class="GtkCellRendererSpinner" id="cellrenderertext5">
+                    <property name="width">80</property>
+                    <property name="height">36</property>
+                  </object>
+                  <attributes>
+                    <attribute name="active">6</attribute>
+                    <attribute name="pulse">5</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn">
+                <property name="resizable">True</property>
+                <property name="title" translatable="yes">Toggle</property>
+                <child>
+                  <object class="GtkCellRendererToggle" id="cellrenderertext6">
+                    <property name="width">80</property>
+                    <property name="height">36</property>
+                  </object>
+                  <attributes>
+                    <attribute name="active">6</attribute>
                   </attributes>
                 </child>
               </object>

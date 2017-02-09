@@ -10,7 +10,7 @@
 
 std::string TreeView1Controller::onStart ()
 {
-        set ("myModel", Core::Variant (getUsers ()));
+        set ("myUsers", Core::Variant (getUsers ()));
         refresh ("");
         return "treeView1View";
 }

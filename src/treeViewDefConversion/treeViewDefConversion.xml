@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+  <DummyController id="treeViewDefConversionController" view="treeViewDefConversionView">
+    <VariantVector set-as="model">
+      <VariantMap>
+        <value set-as="value1" type="String">Franio</value>
+        <value set-as="value2" type="int">35</value>
+        <value set-as="value3" type="bool">true</value>
+        <value set-as="value4" type="char">a</value>
+        <value set-as="value5" type="double">1.2345678</value>
+        <value set-as="value6" type="float">1.234</value>
+      </VariantMap>
+
+      <VariantMap>
+        <value set-as="value1" type="String">Łukanio</value>
+        <value set-as="value2" type="int">66</value>
+        <value set-as="value3" type="bool">false</value>
+        <value set-as="value4" type="char">b</value>
+        <value set-as="value5" type="double">678.9101</value>
+        <value set-as="value6" type="float">123.456</value>
+      </VariantMap>
+    </VariantVector>
+  </DummyController>
+
+  <BuilderView id="treeViewDefConversionView" file="src/treeViewDefConversion/treeViewDefConversionView.ui" loadWholeFile="true">
+    <TableMapping add-to="mappings" widget="treeView" model="model">
+      <Column add-to="columns" model="value1"/>
+      <Column add-to="columns" model="value2"/>
+      <Column add-to="columns" model="value3"/>
+      <Column add-to="columns" model="value4"/>
+      <Column add-to="columns" model="value5"/>
+      <Column add-to="columns" model="value6"/>
+    </TableMapping>
+  </BuilderView>
+</beans>

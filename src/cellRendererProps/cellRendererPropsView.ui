@@ -6,13 +6,17 @@
     <columns>
       <!-- column-name firstname -->
       <column type="gchararray"/>
-      <!-- column-name lastname -->
+      <!-- column-name gchararray1 -->
       <column type="gchararray"/>
-      <!-- column-name age -->
+      <!-- column-name gchararray2 -->
+      <column type="gchararray"/>
+      <!-- column-name gint1 -->
       <column type="gint"/>
+      <!-- column-name strike -->
+      <column type="gboolean"/>
     </columns>
   </object>
-  <object class="GtkWindow" id="treeView1View">
+  <object class="GtkWindow" id="cellRendererPropsView">
     <property name="can_focus">False</property>
     <property name="window_position">center</property>
     <child>
@@ -28,13 +32,10 @@
             <property name="margin_right">5</property>
             <property name="margin_top">5</property>
             <property name="margin_bottom">5</property>
-            <property name="label" translatable="yes">Simple example of mapping std::vector &lt;User *&gt; of objects into GtkTreeView. User has (among others) fields 
-- std::string firstname,
-- std::string lastname,
-- int age.
-
-PS. remember, that ListStore column names in Glade can't be read from C/C++, as they are stored as XML comments in glade files, so you can even leave them blank.</property>
-            <property name="wrap">True</property>
+            <property name="label" translatable="yes">This example shows automatic conversions from C++ model onto various
+ GtkCellRendererText properties. In this example model.name is set as text,
+ model.background is set as cellrenderer's background, and foreground,
+ fontPoints and strike-throught are also set.</property>
           </object>
           <packing>
             <property name="expand">True</property>
@@ -43,7 +44,7 @@ PS. remember, that ListStore column names in Glade can't be read from C/C++, as 
           </packing>
         </child>
         <child>
-          <object class="GtkTreeView" id="&gt;myUsers">
+          <object class="GtkTreeView" id="&gt;treeView">
             <property name="height_request">364</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -54,49 +55,18 @@ PS. remember, that ListStore column names in Glade can't be read from C/C++, as 
             <child>
               <object class="GtkTreeViewColumn">
                 <property name="resizable">True</property>
-                <property name="title" translatable="yes">Firstname</property>
+                <property name="title" translatable="yes">Column</property>
                 <child>
                   <object class="GtkCellRendererText" id="cellrenderertext4">
                     <property name="width">80</property>
                     <property name="height">36</property>
-                    <property name="xpad">18</property>
                   </object>
                   <attributes>
+                    <attribute name="background">1</attribute>
+                    <attribute name="foreground">2</attribute>
+                    <attribute name="size-points">3</attribute>
+                    <attribute name="strikethrough">4</attribute>
                     <attribute name="text">0</attribute>
-                  </attributes>
-                </child>
-              </object>
-            </child>
-            <child>
-              <object class="GtkTreeViewColumn">
-                <property name="resizable">True</property>
-                <property name="min_width">200</property>
-                <property name="title" translatable="yes">Lastname</property>
-                <child>
-                  <object class="GtkCellRendererText" id="cellrenderertext1">
-                    <property name="width">80</property>
-                    <property name="height">36</property>
-                    <property name="xpad">18</property>
-                  </object>
-                  <attributes>
-                    <attribute name="text">1</attribute>
-                  </attributes>
-                </child>
-              </object>
-            </child>
-            <child>
-              <object class="GtkTreeViewColumn">
-                <property name="sizing">fixed</property>
-                <property name="max_width">100</property>
-                <property name="title" translatable="yes">Age</property>
-                <child>
-                  <object class="GtkCellRendererText" id="cellrenderertext2">
-                    <property name="width">80</property>
-                    <property name="height">36</property>
-                    <property name="xpad">18</property>
-                  </object>
-                  <attributes>
-                    <attribute name="text">2</attribute>
                   </attributes>
                 </child>
               </object>

@@ -14,21 +14,6 @@ using namespace Reflection;
 void createReflectionDatabase_gtkFormsDemo ()
 {
 	{
-		Class *clazz = new Class ("User", typeid (User &), new Reflection::PtrDeleter <User>);
-		if (!Manager::add (clazz)) {
-			delete clazz;
-		}
-		else {
-			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <User, void>::Level1Wrapper::newConstructorPointer ()));
-			clazz->addField (new Field ("firstname", Reflection::createFieldWrapper (&User::firstname)));
-			clazz->addField (new Field ("lastname", Reflection::createFieldWrapper (&User::lastname)));
-			clazz->addField (new Field ("age", Reflection::createFieldWrapper (&User::age)));
-			clazz->addField (new Field ("occupation", Reflection::createFieldWrapper (&User::occupation)));
-			clazz->addField (new Field ("happy", Reflection::createFieldWrapper (&User::happy)));
-			clazz->addMethod (new Method ("toString", createMethodWrapper (&User::toString)));
-		}
-	}
-	{
 		Class *clazz = new Class ("UserVector", typeid (UserVector&), new PtrDeleter <UserVector >);
 		if (!Manager::add (clazz)) {;
 			delete clazz;
@@ -48,6 +33,22 @@ void createReflectionDatabase_gtkFormsDemo ()
 
 			w = new IteratorWrapper <UserVector > ();
 			clazz->addMethod (new Method ("iterator", w));
+		}
+	}
+	{
+		Class *clazz = new Class ("User", typeid (User &), new Reflection::PtrDeleter <User>);
+		if (!Manager::add (clazz)) {
+			delete clazz;
+		}
+		else {
+			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <User, void>::Level1Wrapper::newConstructorPointer ()));
+			clazz->addField (new Field ("firstname", Reflection::createFieldWrapper (&User::firstname)));
+			clazz->addField (new Field ("lastname", Reflection::createFieldWrapper (&User::lastname)));
+			clazz->addField (new Field ("occupation", Reflection::createFieldWrapper (&User::occupation)));
+			clazz->addField (new Field ("age", Reflection::createFieldWrapper (&User::age)));
+			clazz->addField (new Field ("happy", Reflection::createFieldWrapper (&User::happy)));
+			clazz->addField (new Field ("friends", Reflection::createFieldWrapper (&User::friends)));
+			clazz->addMethod (new Method ("toString", createMethodWrapper (&User::toString)));
 		}
 	}
 	{
