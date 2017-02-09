@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+  <DummyController id="simpleTreeListStore2Controller" view="simpleTreeListStore2View">
+    <ComputerVector set-as="model">
+      <Computer name="Latitude E6540" desc="Reasonably fast" price="1500">
+        <Peripheral add-to="peripherals" name="mouse" desc="With rubber ball" available="false">
+          <Certificate add-to="certificates" name="CE"/>
+        </Peripheral>
+        <Peripheral add-to="peripherals" name="keyboard" desc="Contains fast neutrons source">
+          <Certificate add-to="certificates" name="FCC"/>
+        </Peripheral>
+      </Computer>
+
+      <Computer name="Samsung Notebook 9" desc="Loose screen, cheap plastic, crap" price="999" available="false">
+        <Peripheral add-to="peripherals" name="joystick" desc="Electromagnetic device">
+          <Certificate add-to="certificates" name="CERN"/>
+          <Certificate add-to="certificates" name="NASA"/>
+        </Peripheral>
+        <Peripheral add-to="peripherals" name="LHC" desc="Basic USB collider">
+          <Certificate add-to="certificates" name="FCC 15"/>
+          <Certificate add-to="certificates" name="FCC 16"/>
+          <Certificate add-to="certificates" name="Polish Ministry of Truth"/>
+        </Peripheral>
+      </Computer>
+    </ComputerVector>
+  </DummyController>
+
+
+  <!-- This collection maps integers to images -->
+  <AssociationMap id="iconAssociation">
+    <value set-as="0">src/simpleTreeListStore2/computer.png</value>
+    <value set-as="1">src/simpleTreeListStore2/disk.png</value>
+    <value set-as="2">src/simpleTreeListStore2/battery.png</value>
+  </AssociationMap>
+
+  <BuilderView id="simpleTreeListStore2View" file="src/simpleTreeListStore2/simpleTreeListStore2View.ui" loadWholeFile="true">
+    <TableMapping add-to="mappings" widget="myUsers" model="model">
+      <Column add-to="columns" model="name" />
+      <Column add-to="columns" model="desc" />
+      <PixbufColumn add-to="columns" model="icon" dict="@iconAssociation"/>
+      <Column add-to="columns" model="priceVisible" />
+      <Column add-to="columns" model="availableVisible" />
+      <Column add-to="columns" model="price" />
+      <Column add-to="columns" model="available" />
+
+      <TableMapping add-to="columns" model="peripherals">
+        <Column add-to="columns" model="name" />
+        <Column add-to="columns" model="desc" />
+        <PixbufColumn add-to="columns" model="icon"  dict="@iconAssociation"/>
+        <Column add-to="columns" model="priceVisible" />
+        <Column add-to="columns" model="availableVisible" />
+        <Column add-to="columns" />
+        <Column add-to="columns" model="available" />
+
+        <TableMapping add-to="columns" model="certificates">
+          <Column add-to="columns" model="name" />
+          <Column add-to="columns" />
+          <PixbufColumn add-to="columns" model="icon" dict="@iconAssociation"/>
+          <Column add-to="columns" model="priceVisible" />
+          <Column add-to="columns" model="availableVisible" />
+        </TableMapping>
+      </TableMapping>
+    </TableMapping>
+  </BuilderView>
+</beans>

@@ -93,10 +93,12 @@ and window (otherMainController)</property>
             </child>
             <child>
               <object class="GtkButton" id="button13">
-                <property name="label" translatable="yes">button</property>
+                <property name="label" translatable="yes">Second tree example
+(simpleTreeListStore2Controller)</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="clicked" handler="$controller.open ('simpleTreeListStore2Controller')" swapped="no"/>
               </object>
               <packing>
                 <property name="left_attach">2</property>

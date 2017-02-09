@@ -17,4 +17,5 @@
   <import resource="src/cellRendererProps/cellRendererProps.xml" />
   <import resource="src/cellRenderers/cellRenderers.xml" />
   <import resource="src/simpleTreeListStore/simpleTreeListStore.xml" />
+  <import resource="src/simpleTreeListStore2/simpleTreeListStore2.xml" />
 </beans>

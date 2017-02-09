@@ -52,6 +52,118 @@ void createReflectionDatabase_gtkFormsDemo ()
 		}
 	}
 	{
+		Class *clazz = new Class ("Certificate", typeid (Certificate &), new Reflection::PtrDeleter <Certificate>);
+		if (!Manager::add (clazz)) {
+			delete clazz;
+		}
+		else {
+			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <Certificate, void>::Level1Wrapper::newConstructorPointer ()));
+			clazz->addField (new Field ("name", Reflection::createFieldWrapper (&Certificate::name)));
+			clazz->addField (new Field ("icon", Reflection::createFieldWrapper (&Certificate::icon)));
+			clazz->addField (new Field ("priceVisible", Reflection::createFieldWrapper (&Certificate::priceVisible)));
+			clazz->addField (new Field ("availableVisible", Reflection::createFieldWrapper (&Certificate::availableVisible)));
+		}
+	}
+	{
+		Class *clazz = new Class ("CertificateVector", typeid (CertificateVector&), new PtrDeleter <CertificateVector >);
+		if (!Manager::add (clazz)) {;
+			delete clazz;
+		}
+		else { 
+			IConstructorPointer *cp = Reflection::ConstructorPointerWrapper2 <CertificateVector, void>::Level1Wrapper::newConstructorPointer ();
+			clazz->addConstructor (new Constructor (cp));
+
+			ICallableWrapper *w = new AddWrapper <CertificateVector > ();
+			clazz->addMethod (new Method ("add", w));
+
+			w = new GetWrapper <CertificateVector > ();
+			clazz->addMethod (new Method ("get", w));
+
+			w = new SetWrapper <CertificateVector > ();
+			clazz->addMethod (new Method ("set", w));
+
+			w = new IteratorWrapper <CertificateVector > ();
+			clazz->addMethod (new Method ("iterator", w));
+		}
+	}
+	{
+		Class *clazz = new Class ("Peripheral", typeid (Peripheral &), new Reflection::PtrDeleter <Peripheral>);
+		if (!Manager::add (clazz)) {
+			delete clazz;
+		}
+		else {
+			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <Peripheral, void>::Level1Wrapper::newConstructorPointer ()));
+			clazz->addField (new Field ("name", Reflection::createFieldWrapper (&Peripheral::name)));
+			clazz->addField (new Field ("desc", Reflection::createFieldWrapper (&Peripheral::desc)));
+			clazz->addField (new Field ("icon", Reflection::createFieldWrapper (&Peripheral::icon)));
+			clazz->addField (new Field ("priceVisible", Reflection::createFieldWrapper (&Peripheral::priceVisible)));
+			clazz->addField (new Field ("availableVisible", Reflection::createFieldWrapper (&Peripheral::availableVisible)));
+			clazz->addField (new Field ("certificates", Reflection::createFieldWrapper (&Peripheral::certificates)));
+			clazz->addField (new Field ("available", Reflection::createFieldWrapper (&Peripheral::available)));
+		}
+	}
+	{
+		Class *clazz = new Class ("PeripheralVector", typeid (PeripheralVector&), new PtrDeleter <PeripheralVector >);
+		if (!Manager::add (clazz)) {;
+			delete clazz;
+		}
+		else { 
+			IConstructorPointer *cp = Reflection::ConstructorPointerWrapper2 <PeripheralVector, void>::Level1Wrapper::newConstructorPointer ();
+			clazz->addConstructor (new Constructor (cp));
+
+			ICallableWrapper *w = new AddWrapper <PeripheralVector > ();
+			clazz->addMethod (new Method ("add", w));
+
+			w = new GetWrapper <PeripheralVector > ();
+			clazz->addMethod (new Method ("get", w));
+
+			w = new SetWrapper <PeripheralVector > ();
+			clazz->addMethod (new Method ("set", w));
+
+			w = new IteratorWrapper <PeripheralVector > ();
+			clazz->addMethod (new Method ("iterator", w));
+		}
+	}
+	{
+		Class *clazz = new Class ("Computer", typeid (Computer &), new Reflection::PtrDeleter <Computer>);
+		if (!Manager::add (clazz)) {
+			delete clazz;
+		}
+		else {
+			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <Computer, void>::Level1Wrapper::newConstructorPointer ()));
+			clazz->addField (new Field ("name", Reflection::createFieldWrapper (&Computer::name)));
+			clazz->addField (new Field ("desc", Reflection::createFieldWrapper (&Computer::desc)));
+			clazz->addField (new Field ("icon", Reflection::createFieldWrapper (&Computer::icon)));
+			clazz->addField (new Field ("price", Reflection::createFieldWrapper (&Computer::price)));
+			clazz->addField (new Field ("priceVisible", Reflection::createFieldWrapper (&Computer::priceVisible)));
+			clazz->addField (new Field ("availableVisible", Reflection::createFieldWrapper (&Computer::availableVisible)));
+			clazz->addField (new Field ("peripherals", Reflection::createFieldWrapper (&Computer::peripherals)));
+			clazz->addField (new Field ("available", Reflection::createFieldWrapper (&Computer::available)));
+		}
+	}
+	{
+		Class *clazz = new Class ("ComputerVector", typeid (ComputerVector&), new PtrDeleter <ComputerVector >);
+		if (!Manager::add (clazz)) {;
+			delete clazz;
+		}
+		else { 
+			IConstructorPointer *cp = Reflection::ConstructorPointerWrapper2 <ComputerVector, void>::Level1Wrapper::newConstructorPointer ();
+			clazz->addConstructor (new Constructor (cp));
+
+			ICallableWrapper *w = new AddWrapper <ComputerVector > ();
+			clazz->addMethod (new Method ("add", w));
+
+			w = new GetWrapper <ComputerVector > ();
+			clazz->addMethod (new Method ("get", w));
+
+			w = new SetWrapper <ComputerVector > ();
+			clazz->addMethod (new Method ("set", w));
+
+			w = new IteratorWrapper <ComputerVector > ();
+			clazz->addMethod (new Method ("iterator", w));
+		}
+	}
+	{
 		Class *clazz = new Class ("Object", typeid (Core::Object &), new Reflection::PtrDeleter <Core::Object>);
 		if (!Manager::add (clazz)) {
 			delete clazz;

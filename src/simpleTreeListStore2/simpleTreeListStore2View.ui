@@ -8,11 +8,19 @@
       <column type="gchararray"/>
       <!-- column-name gchararray2 -->
       <column type="gchararray"/>
-      <!-- column-name gint1 -->
+      <!-- column-name GdkPixbuf1 -->
+      <column type="GdkPixbuf"/>
+      <!-- column-name priceVisible -->
+      <column type="gboolean"/>
+      <!-- column-name availableVisible -->
+      <column type="gboolean"/>
+      <!-- column-name price -->
       <column type="gint"/>
+      <!-- column-name available -->
+      <column type="gboolean"/>
     </columns>
   </object>
-  <object class="GtkWindow" id="simpleTreeListStoreView">
+  <object class="GtkWindow" id="simpleTreeListStore2View">
     <property name="can_focus">False</property>
     <property name="window_position">center</property>
     <child>
@@ -28,9 +36,16 @@
             <property name="margin_right">5</property>
             <property name="margin_top">5</property>
             <property name="margin_bottom">5</property>
-            <property name="label" translatable="yes">This one presents basic tree-like functionality. The GtkTreeView below
- shows a std::vector &lt;User *&gt;, where every user except the last one  has his
- friends in another std::vector &lt;User *&gt;.</property>
+            <property name="label" translatable="yes">This shows a tree with 3 levels of nesting, and some more advanced
+ mappings than previous one. It also demonstrates how to use a
+ PixbufColumn mapping, which maps integers (strings etc) onto a image
+file. 
+
+It also shows how to make rows look non homogeneous. Please note, 
+that "Computers" have both "Available" and "Price" columns visible,
+"Peripherals" have only "Available" visible, and "Certificates" have both 
+columns hidden, which makes them look differently from other
+columns.</property>
           </object>
           <packing>
             <property name="expand">True</property>
@@ -50,11 +65,23 @@
             <child>
               <object class="GtkTreeViewColumn">
                 <property name="resizable">True</property>
-                <property name="title" translatable="yes">Firstname</property>
+                <property name="title" translatable="yes">Icon</property>
                 <child>
-                  <object class="GtkCellRendererText" id="cellrenderertext4">
-                    <property name="width">80</property>
-                    <property name="height">36</property>
+                  <object class="GtkCellRendererPixbuf" id="cellrenderertext4">
+                    <property name="xpad">18</property>
+                  </object>
+                  <attributes>
+                    <attribute name="pixbuf">2</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn">
+                <property name="resizable">True</property>
+                <property name="title" translatable="yes">Name</property>
+                <child>
+                  <object class="GtkCellRendererText" id="cellrenderertext1">
                     <property name="xpad">18</property>
                   </object>
                   <attributes>
@@ -65,13 +92,10 @@
             </child>
             <child>
               <object class="GtkTreeViewColumn">
-                <property name="resizable">True</property>
-                <property name="min_width">200</property>
-                <property name="title" translatable="yes">Lastname</property>
+                <property name="sizing">fixed</property>
+                <property name="title" translatable="yes">Desc</property>
                 <child>
-                  <object class="GtkCellRendererText" id="cellrenderertext1">
-                    <property name="width">80</property>
-                    <property name="height">36</property>
+                  <object class="GtkCellRendererText" id="cellrenderertext2">
                     <property name="xpad">18</property>
                   </object>
                   <attributes>
@@ -82,17 +106,30 @@
             </child>
             <child>
               <object class="GtkTreeViewColumn">
-                <property name="sizing">fixed</property>
-                <property name="max_width">100</property>
-                <property name="title" translatable="yes">Age</property>
+                <property name="resizable">True</property>
+                <property name="title" translatable="yes">Price</property>
                 <child>
-                  <object class="GtkCellRendererText" id="cellrenderertext2">
-                    <property name="width">80</property>
-                    <property name="height">36</property>
+                  <object class="GtkCellRendererText" id="cellrenderertext3">
                     <property name="xpad">18</property>
                   </object>
                   <attributes>
-                    <attribute name="text">2</attribute>
+                    <attribute name="visible">3</attribute>
+                    <attribute name="text">5</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn">
+                <property name="resizable">True</property>
+                <property name="title" translatable="yes">Available</property>
+                <child>
+                  <object class="GtkCellRendererToggle" id="cellrenderertext5">
+                    <property name="xpad">18</property>
+                  </object>
+                  <attributes>
+                    <attribute name="visible">4</attribute>
+                    <attribute name="active">6</attribute>
                   </attributes>
                 </child>
               </object>
