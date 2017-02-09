@@ -1,3 +1,0 @@
-==This is==
-the demo app for the GtkForms library
-[[File:demo.png]]
