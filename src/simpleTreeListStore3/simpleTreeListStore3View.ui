@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.20.0 -->
+<interface>
+  <requires lib="gtk+" version="3.20"/>
+  <object class="GtkTreeStore" id="treestore1">
+    <columns>
+      <!-- column-name icon -->
+      <column type="GdkPixbuf"/>
+      <!-- column-name name -->
+      <column type="gchararray"/>
+      <!-- column-name rating -->
+      <column type="gint"/>
+      <!-- column-name predator -->
+      <column type="gboolean"/>
+      <!-- column-name ratingVisible -->
+      <column type="gboolean"/>
+      <!-- column-name predatorVisible -->
+      <column type="gboolean"/>
+    </columns>
+  </object>
+  <object class="GtkWindow" id="simpleTreeListStore3View">
+    <property name="can_focus">False</property>
+    <property name="window_position">center</property>
+    <child>
+      <object class="GtkBox">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_left">5</property>
+            <property name="margin_right">5</property>
+            <property name="margin_top">5</property>
+            <property name="margin_bottom">5</property>
+            <property name="label" translatable="yes">aa
+aaaa---</property>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkTreeView" id="&gt;myUsers">
+            <property name="height_request">364</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="model">treestore1</property>
+            <child internal-child="selection">
+              <object class="GtkTreeSelection"/>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn">
+                <property name="resizable">True</property>
+                <property name="title" translatable="yes">Icon</property>
+                <child>
+                  <object class="GtkCellRendererPixbuf" id="cellrenderertext4">
+                    <property name="xpad">18</property>
+                  </object>
+                  <attributes>
+                    <attribute name="pixbuf">0</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn">
+                <property name="resizable">True</property>
+                <property name="title" translatable="yes">Name</property>
+                <child>
+                  <object class="GtkCellRendererText" id="cellrenderertext1">
+                    <property name="xpad">18</property>
+                  </object>
+                  <attributes>
+                    <attribute name="text">1</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn">
+                <property name="sizing">fixed</property>
+                <property name="title" translatable="yes">Rating</property>
+                <child>
+                  <object class="GtkCellRendererProgress" id="cellrenderertext2">
+                    <property name="xpad">18</property>
+                  </object>
+                  <attributes>
+                    <attribute name="visible">4</attribute>
+                    <attribute name="value">2</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkTreeViewColumn">
+                <property name="resizable">True</property>
+                <property name="title" translatable="yes">Predator</property>
+                <child>
+                  <object class="GtkCellRendererToggle" id="cellrenderertext5">
+                    <property name="xpad">18</property>
+                  </object>
+                  <attributes>
+                    <attribute name="visible">5</attribute>
+                    <attribute name="active">3</attribute>
+                  </attributes>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButtonBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton">
+                <property name="label">gtk-cancel</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="$controller.close ('')" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

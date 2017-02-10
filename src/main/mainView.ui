@@ -177,10 +177,12 @@ and window (otherMainController)</property>
             </child>
             <child>
               <object class="GtkButton" id="button3">
-                <property name="label" translatable="yes">button</property>
+                <property name="label" translatable="yes">Tree example with consts
+(simpleTreeListStore3Controller)</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="clicked" handler="$controller.open ('simpleTreeListStore3Controller')" swapped="no"/>
               </object>
               <packing>
                 <property name="left_attach">3</property>

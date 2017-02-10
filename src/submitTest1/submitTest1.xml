@@ -6,5 +6,6 @@
         <Mapping add-to="mappings" widget="button" model="model.happy" />
         <Mapping add-to="mappings" widget="myButton" model="model.happy" />
         <Mapping add-to="mappings" widget="myButton" model="model.firstname" property="label" />
+        <Mapping add-to="mappings" widget="const" constValue="CONST" />
   </BuilderView>
 </beans>

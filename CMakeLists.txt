@@ -67,8 +67,11 @@ LIST (APPEND SOURCES "src/Reflection_output.cc.h")
 # +-------------------------------+
 
 LIST (APPEND SOURCES
+        "src/common/ComputerGear.h"
         "src/common/User.h"
         "src/common/User.cc"
+        "src/common/FloraFaunah.h"
+        "src/common/FloraFaunah.cc"
         "src/main.cc"
         "src/Logging.h"
         "src/submitTest1/SubmitTest1Controller.cc"

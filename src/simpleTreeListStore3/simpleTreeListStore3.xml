@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+  <DummyController id="simpleTreeListStore3Controller" view="simpleTreeListStore3View">
+    <AnimalVector set-as="model">
+      <Animal name="dog" rating="10" predator="true">
+        <Animal add-to="friends" name="cat" rating="20" predator="true">
+          <Animal add-to="friends" name="mouse" rating="1" predator="false"/>
+          <Animal add-to="friends" name="seagul" rating="50" predator="true"/>
+        </Animal>
+      </Animal>
+      <Animal name="rat" rating="0" predator="true">
+        <Animal add-to="friends" name="human" rating="1" predator="true">
+          <Animal add-to="friends" name="another human" rating="2" predator="false"/>
+        </Animal>
+      </Animal>
+    </AnimalVector>
+  </DummyController>
+
+  <BuilderView id="simpleTreeListStore3View" file="src/simpleTreeListStore3/simpleTreeListStore3View.ui" loadWholeFile="true">
+    <TableMapping add-to="mappings" widget="myUsers" model="model">
+      <PixbufColumn add-to="columns" constValue="src/simpleTreeListStore2/computer.png"/>
+      <Column add-to="columns" model="name" />
+      <Column add-to="columns" model="rating" />
+      <Column add-to="columns" model="predator" />
+      <Column add-to="columns">
+        <value set-as="constValue" type="bool">true</value>
+      </Column>
+      <Column add-to="columns">
+        <value set-as="constValue" type="bool">true</value>
+      </Column>
+
+      <TableMapping add-to="columns" model="friends">
+        <PixbufColumn add-to="columns" constValue="src/simpleTreeListStore2/disk.png"/>
+        <Column add-to="columns" model="name" />
+        <Column add-to="columns" model="rating" />
+        <Column add-to="columns" model="predator" />
+        <Column add-to="columns">
+          <value set-as="constValue" type="bool">true</value>
+        </Column>
+        <Column add-to="columns">
+          <value set-as="constValue" type="bool">false</value>
+        </Column>
+
+        <TableMapping add-to="columns" model="friends">
+          <PixbufColumn add-to="columns" constValue="src/simpleTreeListStore2/battery.png"/>
+          <Column add-to="columns" model="name" />
+          <Column add-to="columns" model="rating" />
+          <Column add-to="columns" model="predator" />
+          <Column add-to="columns">
+            <value set-as="constValue" type="bool">false</value>
+          </Column>
+          <Column add-to="columns">
+            <value set-as="constValue" type="bool">false</value>
+          </Column>
+        </TableMapping>
+
+      </TableMapping>
+
+    </TableMapping>
+  </BuilderView>
+</beans>

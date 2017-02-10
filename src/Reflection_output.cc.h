@@ -14,44 +14,6 @@ using namespace Reflection;
 void createReflectionDatabase_gtkFormsDemo ()
 {
 	{
-		Class *clazz = new Class ("UserVector", typeid (UserVector&), new PtrDeleter <UserVector >);
-		if (!Manager::add (clazz)) {;
-			delete clazz;
-		}
-		else { 
-			IConstructorPointer *cp = Reflection::ConstructorPointerWrapper2 <UserVector, void>::Level1Wrapper::newConstructorPointer ();
-			clazz->addConstructor (new Constructor (cp));
-
-			ICallableWrapper *w = new AddWrapper <UserVector > ();
-			clazz->addMethod (new Method ("add", w));
-
-			w = new GetWrapper <UserVector > ();
-			clazz->addMethod (new Method ("get", w));
-
-			w = new SetWrapper <UserVector > ();
-			clazz->addMethod (new Method ("set", w));
-
-			w = new IteratorWrapper <UserVector > ();
-			clazz->addMethod (new Method ("iterator", w));
-		}
-	}
-	{
-		Class *clazz = new Class ("User", typeid (User &), new Reflection::PtrDeleter <User>);
-		if (!Manager::add (clazz)) {
-			delete clazz;
-		}
-		else {
-			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <User, void>::Level1Wrapper::newConstructorPointer ()));
-			clazz->addField (new Field ("firstname", Reflection::createFieldWrapper (&User::firstname)));
-			clazz->addField (new Field ("lastname", Reflection::createFieldWrapper (&User::lastname)));
-			clazz->addField (new Field ("occupation", Reflection::createFieldWrapper (&User::occupation)));
-			clazz->addField (new Field ("age", Reflection::createFieldWrapper (&User::age)));
-			clazz->addField (new Field ("happy", Reflection::createFieldWrapper (&User::happy)));
-			clazz->addField (new Field ("friends", Reflection::createFieldWrapper (&User::friends)));
-			clazz->addMethod (new Method ("toString", createMethodWrapper (&User::toString)));
-		}
-	}
-	{
 		Class *clazz = new Class ("Certificate", typeid (Certificate &), new Reflection::PtrDeleter <Certificate>);
 		if (!Manager::add (clazz)) {
 			delete clazz;
@@ -161,6 +123,79 @@ void createReflectionDatabase_gtkFormsDemo ()
 
 			w = new IteratorWrapper <ComputerVector > ();
 			clazz->addMethod (new Method ("iterator", w));
+		}
+	}
+	{
+		Class *clazz = new Class ("AnimalVector", typeid (AnimalVector&), new PtrDeleter <AnimalVector >);
+		if (!Manager::add (clazz)) {;
+			delete clazz;
+		}
+		else { 
+			IConstructorPointer *cp = Reflection::ConstructorPointerWrapper2 <AnimalVector, void>::Level1Wrapper::newConstructorPointer ();
+			clazz->addConstructor (new Constructor (cp));
+
+			ICallableWrapper *w = new AddWrapper <AnimalVector > ();
+			clazz->addMethod (new Method ("add", w));
+
+			w = new GetWrapper <AnimalVector > ();
+			clazz->addMethod (new Method ("get", w));
+
+			w = new SetWrapper <AnimalVector > ();
+			clazz->addMethod (new Method ("set", w));
+
+			w = new IteratorWrapper <AnimalVector > ();
+			clazz->addMethod (new Method ("iterator", w));
+		}
+	}
+	{
+		Class *clazz = new Class ("Animal", typeid (Animal &), new Reflection::PtrDeleter <Animal>);
+		if (!Manager::add (clazz)) {
+			delete clazz;
+		}
+		else {
+			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <Animal, void>::Level1Wrapper::newConstructorPointer ()));
+			clazz->addField (new Field ("name", Reflection::createFieldWrapper (&Animal::name)));
+			clazz->addField (new Field ("rating", Reflection::createFieldWrapper (&Animal::rating)));
+			clazz->addField (new Field ("predator", Reflection::createFieldWrapper (&Animal::predator)));
+			clazz->addField (new Field ("friends", Reflection::createFieldWrapper (&Animal::friends)));
+		}
+	}
+	{
+		Class *clazz = new Class ("UserVector", typeid (UserVector&), new PtrDeleter <UserVector >);
+		if (!Manager::add (clazz)) {;
+			delete clazz;
+		}
+		else { 
+			IConstructorPointer *cp = Reflection::ConstructorPointerWrapper2 <UserVector, void>::Level1Wrapper::newConstructorPointer ();
+			clazz->addConstructor (new Constructor (cp));
+
+			ICallableWrapper *w = new AddWrapper <UserVector > ();
+			clazz->addMethod (new Method ("add", w));
+
+			w = new GetWrapper <UserVector > ();
+			clazz->addMethod (new Method ("get", w));
+
+			w = new SetWrapper <UserVector > ();
+			clazz->addMethod (new Method ("set", w));
+
+			w = new IteratorWrapper <UserVector > ();
+			clazz->addMethod (new Method ("iterator", w));
+		}
+	}
+	{
+		Class *clazz = new Class ("User", typeid (User &), new Reflection::PtrDeleter <User>);
+		if (!Manager::add (clazz)) {
+			delete clazz;
+		}
+		else {
+			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <User, void>::Level1Wrapper::newConstructorPointer ()));
+			clazz->addField (new Field ("firstname", Reflection::createFieldWrapper (&User::firstname)));
+			clazz->addField (new Field ("lastname", Reflection::createFieldWrapper (&User::lastname)));
+			clazz->addField (new Field ("occupation", Reflection::createFieldWrapper (&User::occupation)));
+			clazz->addField (new Field ("age", Reflection::createFieldWrapper (&User::age)));
+			clazz->addField (new Field ("happy", Reflection::createFieldWrapper (&User::happy)));
+			clazz->addField (new Field ("friends", Reflection::createFieldWrapper (&User::friends)));
+			clazz->addMethod (new Method ("toString", createMethodWrapper (&User::toString)));
 		}
 	}
 	{
