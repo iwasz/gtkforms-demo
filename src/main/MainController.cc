@@ -25,16 +25,21 @@ std::string MainController::onStart ()
  */
 void MainController::onSubmit ()
 {
-//        Ptr<User> user = vcast<Ptr<User>> (get ("model"));
-//        set ("summary", Core::Variant (user->toString ()));
-//        refresh ("");
+        //        Ptr<User> user = vcast<Ptr<User>> (get ("model"));
+        //        set ("summary", Core::Variant (user->toString ()));
+        //        refresh ("");
 }
+
+/*****************************************************************************/
 
 void MainController::onRowActivated (std::string const &controllerName)
 {
-        std::cerr << controllerName << std::endl;
+        if (!controllerName.empty ()) {
+                if (controllerName != "otherMainController") { // hack
+                        open (controllerName);
+                }
+                else {
+                        replace (controllerName);
+                }
+        }
 }
-
-
-
-

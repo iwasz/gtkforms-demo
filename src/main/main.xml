@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans>
   <MainController id="mainController">
-    <DemoCategory add-to="demoCategories" name="Basics" description="Rudimentary stuff">
-      <Demo add-to="demos" name="info" description="Simple window with a label" controllerName="infoController" directory="info"/>
-      <Demo add-to="demos" name="otherMain" description="Window which replaces this one" controllerName="otherMainController" directory="otherMain"/>
+    <DemoCategory add-to="demoCategories" name="Layout" description="Managing windows, nesting widgets">
+      <Demo add-to="demos" name="info" description="Simple window with a label" controllerName="infoController" />
+      <Demo add-to="demos" name="otherMain" description="Window which replaces this one" controllerName="otherMainController"/>
+      <Demo add-to="demos" name="wizardContainer" description="Wizard / reatore like" controllerName="wizardContainerController"/>
+      <Demo add-to="demos" name="tab" description="Tabs example (todo)" controllerName="tabController" />
+    </DemoCategory>
+
+    <DemoCategory add-to="demoCategories" name="Submission" description="Dealing with forms, converting model to view and vice versa">
+      <Demo add-to="demos" name="submitTest1" description="Basic form" controllerName="submitTest1Controller" />
+    </DemoCategory>
+
+    <DemoCategory add-to="demoCategories" name="GtkTreeView" description="List-stores and tree-stores, various aspects">
+      <Demo add-to="demos" name="treeView1" description="First table with list-store" controllerName="treeView1Controller"/>
+      <Demo add-to="demos" name="treeViewDefConversion" description="Another table" controllerName="treeViewDefConversionController"/>
+      <Demo add-to="demos" name="cellRendererProps" description="Table exploiting cell renderers properties" controllerName="cellRendererPropsController"/>
+      <Demo add-to="demos" name="cellRenderers" description="Various cell renderers" controllerName="cellRenderersController"/>
+      <Demo add-to="demos" name="simpleTreeListStore" description="Simplest table with tree" controllerName="simpleTreeListStoreController"/>
+      <Demo add-to="demos" name="simpleTreeListStore2" description="Tree2" controllerName="simpleTreeListStore2Controller"/>
+      <Demo add-to="demos" name="simpleTreeListStore3" description="Tree3" controllerName="simpleTreeListStore3Controller"/>
     </DemoCategory>
   </MainController>
 

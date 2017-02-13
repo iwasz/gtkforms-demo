@@ -18,7 +18,7 @@ struct __tiliae_reflect__ Demo {
         std::string name;
         std::string description;
         std::string controllerName;
-        std::string directory;
+        bool replace = false; /// $controller.replace or $controller.open?
 };
 
 typedef __tiliae_reflect__ std::vector<Demo *> DemoVector;

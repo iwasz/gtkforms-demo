@@ -446,7 +446,7 @@ void createReflectionDatabase_gtkFormsDemo ()
 			clazz->addField (new Field ("name", Reflection::createFieldWrapper (&Demo::name)));
 			clazz->addField (new Field ("description", Reflection::createFieldWrapper (&Demo::description)));
 			clazz->addField (new Field ("controllerName", Reflection::createFieldWrapper (&Demo::controllerName)));
-			clazz->addField (new Field ("directory", Reflection::createFieldWrapper (&Demo::directory)));
+			clazz->addField (new Field ("replace", Reflection::createFieldWrapper (&Demo::replace)));
 		}
 	}
 	{
