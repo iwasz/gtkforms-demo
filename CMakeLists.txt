@@ -78,6 +78,8 @@ LIST (APPEND SOURCES
         "src/submitTest1/SubmitTest1Controller.h"
         "src/treeView1/TreeView1Controller.cc"
         "src/treeView1/TreeView1Controller.h"
+        "src/main/MainController.cc"
+        "src/main/MainController.h"
 )
 
 # Local includes (inside project).

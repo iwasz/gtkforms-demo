@@ -209,53 +209,6 @@ void createReflectionDatabase_gtkFormsDemo ()
 		}
 	}
 	{
-		Class *clazz = new Class ("ISignalAdapter", typeid (GtkForms::ISignalAdapter &), new Reflection::PtrDeleter <GtkForms::ISignalAdapter>);
-		if (!Manager::add (clazz)) {
-			delete clazz;
-		}
-		else {
-			clazz->addBaseClassName ("Object");
-			clazz->addMethod (new Method ("getSignal", createMethodWrapper (&GtkForms::ISignalAdapter::getSignal)));
-			clazz->addMethod (new Method ("getGObjectName", createMethodWrapper (&GtkForms::ISignalAdapter::getGObjectName)));
-			clazz->addMethod (new Method ("getWidgetId", createMethodWrapper (&GtkForms::ISignalAdapter::getWidgetId)));
-			clazz->addMethod (new Method ("adapt", createMethodWrapper (&GtkForms::ISignalAdapter::adapt)));
-		}
-	}
-	{
-		Class *clazz = new Class ("AbstractSignalAdapter", typeid (GtkForms::AbstractSignalAdapter &), new Reflection::PtrDeleter <GtkForms::AbstractSignalAdapter>);
-		if (!Manager::add (clazz)) {
-			delete clazz;
-		}
-		else {
-			clazz->addBaseClassName ("ISignalAdapter");
-			clazz->addMethod (new Method ("getSignal", createMethodWrapper (&GtkForms::AbstractSignalAdapter::getSignal)));
-			clazz->addMethod (new Method ("getGObjectName", createMethodWrapper (&GtkForms::AbstractSignalAdapter::getGObjectName)));
-			clazz->addMethod (new Method ("getWidgetId", createMethodWrapper (&GtkForms::AbstractSignalAdapter::getWidgetId)));
-		}
-	}
-	{
-		Class *clazz = new Class ("SignalAdapterVector", typeid (GtkForms::SignalAdapterVector&), new PtrDeleter <GtkForms::SignalAdapterVector >);
-		if (!Manager::add (clazz)) {;
-			delete clazz;
-		}
-		else { 
-			IConstructorPointer *cp = Reflection::ConstructorPointerWrapper2 <GtkForms::SignalAdapterVector, void>::Level1Wrapper::newConstructorPointer ();
-			clazz->addConstructor (new Constructor (cp));
-
-			ICallableWrapper *w = new AddWrapper <GtkForms::SignalAdapterVector > ();
-			clazz->addMethod (new Method ("add", w));
-
-			w = new GetWrapper <GtkForms::SignalAdapterVector > ();
-			clazz->addMethod (new Method ("get", w));
-
-			w = new SetWrapper <GtkForms::SignalAdapterVector > ();
-			clazz->addMethod (new Method ("set", w));
-
-			w = new IteratorWrapper <GtkForms::SignalAdapterVector > ();
-			clazz->addMethod (new Method ("iterator", w));
-		}
-	}
-	{
 		Class *clazz = new Class ("IEditor", typeid (Editor::IEditor &), new Reflection::PtrDeleter <Editor::IEditor>);
 		if (!Manager::add (clazz)) {
 			delete clazz;
@@ -423,7 +376,6 @@ void createReflectionDatabase_gtkFormsDemo ()
 		else {
 			clazz->addBaseClassName ("Object");
 			clazz->addField (new Field ("validators", Reflection::createFieldWrapper (&GtkForms::AbstractController::validators)));
-			clazz->addField (new Field ("signalAdapters", Reflection::createFieldWrapper (&GtkForms::AbstractController::signalAdapters)));
 			clazz->addField (new Field ("loopDelayMs", Reflection::createFieldWrapper (&GtkForms::AbstractController::loopDelayMs)));
 			clazz->addField (new Field ("alsoOpen", Reflection::createFieldWrapper (&GtkForms::AbstractController::alsoOpen)));
 			clazz->addMethod (new Method ("set", createMethodWrapper (&GtkForms::AbstractController::set)));
@@ -441,7 +393,6 @@ void createReflectionDatabase_gtkFormsDemo ()
 			clazz->addMethod (new Method ("contId", createMethodWrapper (&GtkForms::AbstractController::contId)));
 			clazz->addMethod (new Method ("findByName", createMethodWrapper (&GtkForms::AbstractController::findByName)));
 			clazz->addMethod (new Method ("validate", createMethodWrapper (&GtkForms::AbstractController::validate)));
-			clazz->addMethod (new Method ("getSignalAdapters", createMethodWrapper (&GtkForms::AbstractController::getSignalAdapters)));
 			clazz->addMethod (new Method ("getValidators", createMethodWrapper (&GtkForms::AbstractController::getValidators)));
 			clazz->addMethod (new Method ("refresh", createMethodWrapper (&GtkForms::AbstractController::refresh)));
 			clazz->addMethod (new Method ("submit", createMethodWrapper (&GtkForms::AbstractController::submit)));
@@ -483,6 +434,89 @@ void createReflectionDatabase_gtkFormsDemo ()
 			clazz->addMethod (new Method ("onStart", createMethodWrapper (&TreeView1Controller::onStart)));
 			clazz->addMethod (new Method ("getUsers", createMethodWrapper (&TreeView1Controller::getUsers)));
 			clazz->addMethod (new Method ("setUsers", createMethodWrapper (&TreeView1Controller::setUsers)));
+		}
+	}
+	{
+		Class *clazz = new Class ("Demo", typeid (Demo &), new Reflection::PtrDeleter <Demo>);
+		if (!Manager::add (clazz)) {
+			delete clazz;
+		}
+		else {
+			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <Demo, void>::Level1Wrapper::newConstructorPointer ()));
+			clazz->addField (new Field ("name", Reflection::createFieldWrapper (&Demo::name)));
+			clazz->addField (new Field ("description", Reflection::createFieldWrapper (&Demo::description)));
+			clazz->addField (new Field ("controllerName", Reflection::createFieldWrapper (&Demo::controllerName)));
+			clazz->addField (new Field ("directory", Reflection::createFieldWrapper (&Demo::directory)));
+		}
+	}
+	{
+		Class *clazz = new Class ("DemoVector", typeid (DemoVector&), new PtrDeleter <DemoVector >);
+		if (!Manager::add (clazz)) {;
+			delete clazz;
+		}
+		else { 
+			IConstructorPointer *cp = Reflection::ConstructorPointerWrapper2 <DemoVector, void>::Level1Wrapper::newConstructorPointer ();
+			clazz->addConstructor (new Constructor (cp));
+
+			ICallableWrapper *w = new AddWrapper <DemoVector > ();
+			clazz->addMethod (new Method ("add", w));
+
+			w = new GetWrapper <DemoVector > ();
+			clazz->addMethod (new Method ("get", w));
+
+			w = new SetWrapper <DemoVector > ();
+			clazz->addMethod (new Method ("set", w));
+
+			w = new IteratorWrapper <DemoVector > ();
+			clazz->addMethod (new Method ("iterator", w));
+		}
+	}
+	{
+		Class *clazz = new Class ("DemoCategory", typeid (DemoCategory &), new Reflection::PtrDeleter <DemoCategory>);
+		if (!Manager::add (clazz)) {
+			delete clazz;
+		}
+		else {
+			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <DemoCategory, void>::Level1Wrapper::newConstructorPointer ()));
+			clazz->addField (new Field ("name", Reflection::createFieldWrapper (&DemoCategory::name)));
+			clazz->addField (new Field ("description", Reflection::createFieldWrapper (&DemoCategory::description)));
+			clazz->addField (new Field ("demos", Reflection::createFieldWrapper (&DemoCategory::demos)));
+		}
+	}
+	{
+		Class *clazz = new Class ("DemoCategoryVector", typeid (DemoCategoryVector&), new PtrDeleter <DemoCategoryVector >);
+		if (!Manager::add (clazz)) {;
+			delete clazz;
+		}
+		else { 
+			IConstructorPointer *cp = Reflection::ConstructorPointerWrapper2 <DemoCategoryVector, void>::Level1Wrapper::newConstructorPointer ();
+			clazz->addConstructor (new Constructor (cp));
+
+			ICallableWrapper *w = new AddWrapper <DemoCategoryVector > ();
+			clazz->addMethod (new Method ("add", w));
+
+			w = new GetWrapper <DemoCategoryVector > ();
+			clazz->addMethod (new Method ("get", w));
+
+			w = new SetWrapper <DemoCategoryVector > ();
+			clazz->addMethod (new Method ("set", w));
+
+			w = new IteratorWrapper <DemoCategoryVector > ();
+			clazz->addMethod (new Method ("iterator", w));
+		}
+	}
+	{
+		Class *clazz = new Class ("MainController", typeid (MainController &), new Reflection::PtrDeleter <MainController>);
+		if (!Manager::add (clazz)) {
+			delete clazz;
+		}
+		else {
+			clazz->addBaseClassName ("AbstractController");
+			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <MainController, void>::Level1Wrapper::newConstructorPointer ()));
+			clazz->addField (new Field ("demoCategories", Reflection::createFieldWrapper (&MainController::demoCategories)));
+			clazz->addMethod (new Method ("onStart", createMethodWrapper (&MainController::onStart)));
+			clazz->addMethod (new Method ("onSubmit", createMethodWrapper (&MainController::onSubmit)));
+			clazz->addMethod (new Method ("onRowActivated", createMethodWrapper (&MainController::onRowActivated)));
 		}
 	}
 }

@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans>
-  <DummyController id="mainController" view="mainView" />
-  <BuilderView id="mainView" file="src/main/mainView.ui" />
+  <MainController id="mainController">
+    <DemoCategory add-to="demoCategories" name="Basics" description="Rudimentary stuff">
+      <Demo add-to="demos" name="info" description="Simple window with a label" controllerName="infoController" directory="info"/>
+      <Demo add-to="demos" name="otherMain" description="Window which replaces this one" controllerName="otherMainController" directory="otherMain"/>
+    </DemoCategory>
+  </MainController>
+
+  <BuilderView id="mainView" file="src/main/mainView.ui" loadWholeFile="true">
+    <TableMapping add-to="mappings" widget="demoList" model="model">
+      <PixbufColumn add-to="columns" constValue="src/simpleTreeListStore2/computer.png"/>
+      <Column add-to="columns" model="name" />
+      <Column add-to="columns" model="description" />
+
+      <TableMapping add-to="columns" model="demos">
+        <PixbufColumn add-to="columns" constValue="src/simpleTreeListStore2/disk.png"/>
+        <Column add-to="columns" model="name" />
+        <Column add-to="columns" model="description" />
+        <Column add-to="columns" model="controllerName"/>
+      </TableMapping>
+    </TableMapping>
+
+    <RowActivatedAdapter add-to="signalAdapters" modelColumn="3" />
+  </BuilderView>
 </beans>
