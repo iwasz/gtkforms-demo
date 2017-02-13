@@ -41,9 +41,14 @@ public:
 
         virtual std::string onStart ();
         virtual void onSubmit ();
-        void onRowActivated (std::string const &controllerName);
+        void onRowActivated (const Core::Variant &row);
+        void onRowSelected (const Core::Variant &row);
+        void onOpenDirectory ();
 
         DemoCategoryVector demoCategories;
+
+private:
+        std::string currentSelection;
 };
 
 #endif /* MainController_H_ */

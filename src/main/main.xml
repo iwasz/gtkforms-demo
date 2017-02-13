@@ -3,7 +3,7 @@
   <MainController id="mainController">
     <DemoCategory add-to="demoCategories" name="Layout" description="Managing windows, nesting widgets">
       <Demo add-to="demos" name="info" description="Simple window with a label" controllerName="infoController" />
-      <Demo add-to="demos" name="otherMain" description="Window which replaces this one" controllerName="otherMainController"/>
+      <Demo add-to="demos" name="otherMain" description="Window which replaces this one" controllerName="otherMainController" replace="true" />
       <Demo add-to="demos" name="wizardContainer" description="Wizard / reatore like" controllerName="wizardContainerController"/>
       <Demo add-to="demos" name="tab" description="Tabs example (todo)" controllerName="tabController" />
     </DemoCategory>
@@ -28,16 +28,18 @@
       <PixbufColumn add-to="columns" constValue="src/simpleTreeListStore2/computer.png"/>
       <Column add-to="columns" model="name" />
       <Column add-to="columns" model="description" />
+      <Column add-to="columns" />
 
       <TableMapping add-to="columns" model="demos">
         <PixbufColumn add-to="columns" constValue="src/simpleTreeListStore2/disk.png"/>
         <Column add-to="columns" model="name" />
         <Column add-to="columns" model="description" />
-        <Column add-to="columns" model="controllerName"/>
+        <Column add-to="columns" storeThisRow="true" />
       </TableMapping>
     </TableMapping>
 
     <RowActivatedAdapter add-to="signalAdapters" modelColumn="3" />
+    <RowActivatedAdapter add-to="signalAdapters" modelColumn="3" signal="changed" />
     <GtkTreeViewDecorator add-to="decorators" widget="&gt;demoList" postRefreshExpandAll="true" />
   </BuilderView>
 </beans>

@@ -10,6 +10,7 @@
 #include "common/User.h"
 #include <App.h>
 #include <Logging.h>
+#include <unistd.h>
 
 static src::logger_mt &lg = logger::get ();
 
@@ -32,14 +33,54 @@ void MainController::onSubmit ()
 
 /*****************************************************************************/
 
-void MainController::onRowActivated (std::string const &controllerName)
+void MainController::onRowActivated (Core::Variant const &row)
 {
-        if (!controllerName.empty ()) {
-                if (controllerName != "otherMainController") { // hack
-                        open (controllerName);
-                }
-                else {
-                        replace (controllerName);
-                }
+        if (row.isNone () || row.isNull ()) {
+                return;
+        }
+
+        void const *rawRow = vcast<void const *> (row);
+        Demo const *demo = static_cast<Demo const *> (rawRow);
+
+        if (demo->replace) {
+                replace (demo->controllerName);
+        }
+        else {
+                open (demo->controllerName);
+        }
+}
+
+/*****************************************************************************/
+
+void MainController::onRowSelected (Core::Variant const &row)
+{
+        if (row.isNone () || row.isNull ()) {
+                return;
+        }
+
+        void const *rawRow = vcast<void const *> (row);
+        Demo const *demo = static_cast<Demo const *> (rawRow);
+        currentSelection = demo->name;
+
+        set ("description", Core::Variant (demo->description));
+        refresh ("description");
+}
+
+/*****************************************************************************/
+
+void MainController::onOpenDirectory ()
+{
+        if (currentSelection.empty ()) {
+                return;
+        }
+
+        char cwd[1024];
+        getcwd (cwd, sizeof (cwd));
+
+        std::string uri = "file:///" + std::string (cwd) + "/src/" + currentSelection;
+
+        GError *error = NULL;
+        if (!g_app_info_launch_default_for_uri (uri.c_str (), NULL, &error)) {
+                BOOST_LOG (lg) << "Failed to open uri : " << error->message;
         }
 }
