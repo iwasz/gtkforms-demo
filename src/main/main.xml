@@ -38,5 +38,6 @@
     </TableMapping>
 
     <RowActivatedAdapter add-to="signalAdapters" modelColumn="3" />
+    <GtkTreeViewDecorator add-to="decorators" widget="&gt;demoList" postRefreshExpandAll="true" />
   </BuilderView>
 </beans>
