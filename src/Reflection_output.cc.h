@@ -410,33 +410,6 @@ void createReflectionDatabase_gtkFormsDemo ()
 		}
 	}
 	{
-		Class *clazz = new Class ("SubmitTest1Controller", typeid (SubmitTest1Controller &), new Reflection::PtrDeleter <SubmitTest1Controller>);
-		if (!Manager::add (clazz)) {
-			delete clazz;
-		}
-		else {
-			clazz->addBaseClassName ("AbstractController");
-			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <SubmitTest1Controller, void>::Level1Wrapper::newConstructorPointer ()));
-			clazz->addMethod (new Method ("onStart", createMethodWrapper (&SubmitTest1Controller::onStart)));
-			clazz->addMethod (new Method ("onSubmit", createMethodWrapper (&SubmitTest1Controller::onSubmit)));
-			clazz->addMethod (new Method ("onIdle", createMethodWrapper (&SubmitTest1Controller::onIdle)));
-			clazz->addMethod (new Method ("onStop", createMethodWrapper (&SubmitTest1Controller::onStop)));
-		}
-	}
-	{
-		Class *clazz = new Class ("TreeView1Controller", typeid (TreeView1Controller &), new Reflection::PtrDeleter <TreeView1Controller>);
-		if (!Manager::add (clazz)) {
-			delete clazz;
-		}
-		else {
-			clazz->addBaseClassName ("AbstractController");
-			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <TreeView1Controller, void>::Level1Wrapper::newConstructorPointer ()));
-			clazz->addMethod (new Method ("onStart", createMethodWrapper (&TreeView1Controller::onStart)));
-			clazz->addMethod (new Method ("getUsers", createMethodWrapper (&TreeView1Controller::getUsers)));
-			clazz->addMethod (new Method ("setUsers", createMethodWrapper (&TreeView1Controller::setUsers)));
-		}
-	}
-	{
 		Class *clazz = new Class ("Demo", typeid (Demo &), new Reflection::PtrDeleter <Demo>);
 		if (!Manager::add (clazz)) {
 			delete clazz;
@@ -519,6 +492,45 @@ void createReflectionDatabase_gtkFormsDemo ()
 			clazz->addMethod (new Method ("onRowActivated", createMethodWrapper (&MainController::onRowActivated)));
 			clazz->addMethod (new Method ("onRowSelected", createMethodWrapper (&MainController::onRowSelected)));
 			clazz->addMethod (new Method ("onOpenDirectory", createMethodWrapper (&MainController::onOpenDirectory)));
+		}
+	}
+	{
+		Class *clazz = new Class ("SubmitAutoController", typeid (SubmitAutoController &), new Reflection::PtrDeleter <SubmitAutoController>);
+		if (!Manager::add (clazz)) {
+			delete clazz;
+		}
+		else {
+			clazz->addBaseClassName ("AbstractController");
+			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <SubmitAutoController, void>::Level1Wrapper::newConstructorPointer ()));
+			clazz->addMethod (new Method ("onStart", createMethodWrapper (&SubmitAutoController::onStart)));
+			clazz->addMethod (new Method ("onSubmit", createMethodWrapper (&SubmitAutoController::onSubmit)));
+		}
+	}
+	{
+		Class *clazz = new Class ("SubmitTest1Controller", typeid (SubmitTest1Controller &), new Reflection::PtrDeleter <SubmitTest1Controller>);
+		if (!Manager::add (clazz)) {
+			delete clazz;
+		}
+		else {
+			clazz->addBaseClassName ("AbstractController");
+			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <SubmitTest1Controller, void>::Level1Wrapper::newConstructorPointer ()));
+			clazz->addMethod (new Method ("onStart", createMethodWrapper (&SubmitTest1Controller::onStart)));
+			clazz->addMethod (new Method ("onSubmit", createMethodWrapper (&SubmitTest1Controller::onSubmit)));
+			clazz->addMethod (new Method ("onIdle", createMethodWrapper (&SubmitTest1Controller::onIdle)));
+			clazz->addMethod (new Method ("onStop", createMethodWrapper (&SubmitTest1Controller::onStop)));
+		}
+	}
+	{
+		Class *clazz = new Class ("TreeView1Controller", typeid (TreeView1Controller &), new Reflection::PtrDeleter <TreeView1Controller>);
+		if (!Manager::add (clazz)) {
+			delete clazz;
+		}
+		else {
+			clazz->addBaseClassName ("AbstractController");
+			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <TreeView1Controller, void>::Level1Wrapper::newConstructorPointer ()));
+			clazz->addMethod (new Method ("onStart", createMethodWrapper (&TreeView1Controller::onStart)));
+			clazz->addMethod (new Method ("getUsers", createMethodWrapper (&TreeView1Controller::getUsers)));
+			clazz->addMethod (new Method ("setUsers", createMethodWrapper (&TreeView1Controller::setUsers)));
 		}
 	}
 }

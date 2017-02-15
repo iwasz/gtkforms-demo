@@ -10,6 +10,7 @@
 
     <DemoCategory add-to="demoCategories" name="Submission" description="Dealing with forms, converting model to view and vice versa">
       <Demo add-to="demos" name="submitTest1" description="Basic form" controllerName="submitTest1Controller" />
+      <Demo add-to="demos" name="submitAuto" description="Submission by clicking a button, and auto submission" controllerName="submitAutoController" />
     </DemoCategory>
 
     <DemoCategory add-to="demoCategories" name="GtkTreeView" description="List-stores and tree-stores, various aspects">

@@ -76,6 +76,8 @@ LIST (APPEND SOURCES
         "src/Logging.h"
         "src/submitTest1/SubmitTest1Controller.cc"
         "src/submitTest1/SubmitTest1Controller.h"
+        "src/submitAuto/SubmitAutoController.cc"
+        "src/submitAuto/SubmitAutoController.h"
         "src/treeView1/TreeView1Controller.cc"
         "src/treeView1/TreeView1Controller.h"
         "src/main/MainController.cc"

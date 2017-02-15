@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+  <SubmitAutoController id="submitAutoController" />
+  <BuilderView id="submitAutoView" file="src/submitAuto/submitAutoView.ui">
+<!--    <Mapping add-to="mappings" widget="model.firstname1" model="model.firstname"/>
+    <Mapping add-to="mappings" widget="model.lastname1" model="model.lastname"/>
+    <Mapping add-to="mappings" widget="model.occupation1" model="model.occupation"/>
+    <Mapping add-to="mappings" widget="model.happy1" model="model.happy"/>-->
+  </BuilderView>
+</beans>

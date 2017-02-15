@@ -11,6 +11,7 @@
   <import resource="src/otherMain/otherMain.xml" />
   <import resource="src/wizardContainer/wizardContainer.xml" />
   <import resource="src/submitTest1/submitTest1.xml" />
+  <import resource="src/submitAuto/submitAuto.xml" />
   <import resource="src/tab/tab.xml" />
   <import resource="src/treeView1/treeView1.xml" />
   <import resource="src/treeViewDefConversion/treeViewDefConversion.xml" />
