@@ -19,6 +19,7 @@
     <property name="height_request">600</property>
     <property name="can_focus">False</property>
     <property name="window_position">center</property>
+    <signal name="key-press-event" handler="$controller.onKeyPress(%0)" swapped="no"/>
     <child>
       <object class="GtkNotebook" id="notebook1">
         <property name="visible">True</property>
@@ -32,7 +33,7 @@
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Double click to run demo</property>
+                <property name="label" translatable="yes">Double click to run demo, press 'a' for more info.</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -107,7 +108,6 @@
                   <object class="GtkLabel" id="&gt;description">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">label</property>
                   </object>
                   <packing>
                     <property name="expand">True</property>

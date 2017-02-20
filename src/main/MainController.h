@@ -34,6 +34,9 @@ struct __tiliae_reflect__ DemoCategory {
 
 typedef __tiliae_reflect__ std::vector<DemoCategory *> DemoCategoryVector;
 
+/**
+ * @brief The MainController class
+ */
 class __tiliae_reflect__ MainController : public GtkForms::AbstractController {
 public:
         MainController () {}
@@ -44,6 +47,7 @@ public:
         void onRowActivated (const Core::Variant &row);
         void onRowSelected (const Core::Variant &row);
         void onOpenDirectory ();
+        void onKeyPress (unsigned int key);
 
         DemoCategoryVector demoCategories;
 

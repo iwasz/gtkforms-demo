@@ -492,6 +492,7 @@ void createReflectionDatabase_gtkFormsDemo ()
 			clazz->addMethod (new Method ("onRowActivated", createMethodWrapper (&MainController::onRowActivated)));
 			clazz->addMethod (new Method ("onRowSelected", createMethodWrapper (&MainController::onRowSelected)));
 			clazz->addMethod (new Method ("onOpenDirectory", createMethodWrapper (&MainController::onOpenDirectory)));
+			clazz->addMethod (new Method ("onKeyPress", createMethodWrapper (&MainController::onKeyPress)));
 		}
 	}
 	{

@@ -84,3 +84,13 @@ void MainController::onOpenDirectory ()
                 BOOST_LOG (lg) << "Failed to open uri : " << error->message;
         }
 }
+
+/*****************************************************************************/
+
+void MainController::onKeyPress (unsigned int key)
+{
+        BOOST_LOG (lg) << "Key pressed : [" << key << "]";
+        if (key == GDK_KEY_a) {
+                open ("infoController");
+        }
+}
