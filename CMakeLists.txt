@@ -82,6 +82,8 @@ LIST (APPEND SOURCES
         "src/treeView1/TreeView1Controller.h"
         "src/main/MainController.cc"
         "src/main/MainController.h"
+        "src/addNode/AddNodeController.cc"
+        "src/addNode/AddNodeController.h"
 )
 
 # Local includes (inside project).

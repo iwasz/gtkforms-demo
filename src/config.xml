@@ -20,4 +20,5 @@
   <import resource="src/simpleTreeListStore/simpleTreeListStore.xml" />
   <import resource="src/simpleTreeListStore2/simpleTreeListStore2.xml" />
   <import resource="src/simpleTreeListStore3/simpleTreeListStore3.xml" />
+  <import resource="src/addNode/addNode.xml" />
 </beans>

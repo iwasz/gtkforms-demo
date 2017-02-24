@@ -534,6 +534,88 @@ void createReflectionDatabase_gtkFormsDemo ()
 			clazz->addMethod (new Method ("setUsers", createMethodWrapper (&TreeView1Controller::setUsers)));
 		}
 	}
+	{
+		Class *clazz = new Class ("NodeMeta", typeid (NodeMeta &), new Reflection::PtrDeleter <NodeMeta>);
+		if (!Manager::add (clazz)) {
+			delete clazz;
+		}
+		else {
+			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <NodeMeta, void>::Level1Wrapper::newConstructorPointer ()));
+			clazz->addField (new Field ("name", Reflection::createFieldWrapper (&NodeMeta::name)));
+			clazz->addField (new Field ("description", Reflection::createFieldWrapper (&NodeMeta::description)));
+		}
+	}
+	{
+		Class *clazz = new Class ("NodeMetaVector", typeid (NodeMetaVector&), new PtrDeleter <NodeMetaVector >);
+		if (!Manager::add (clazz)) {;
+			delete clazz;
+		}
+		else { 
+			IConstructorPointer *cp = Reflection::ConstructorPointerWrapper2 <NodeMetaVector, void>::Level1Wrapper::newConstructorPointer ();
+			clazz->addConstructor (new Constructor (cp));
+
+			ICallableWrapper *w = new AddWrapper <NodeMetaVector > ();
+			clazz->addMethod (new Method ("add", w));
+
+			w = new GetWrapper <NodeMetaVector > ();
+			clazz->addMethod (new Method ("get", w));
+
+			w = new SetWrapper <NodeMetaVector > ();
+			clazz->addMethod (new Method ("set", w));
+
+			w = new IteratorWrapper <NodeMetaVector > ();
+			clazz->addMethod (new Method ("iterator", w));
+		}
+	}
+	{
+		Class *clazz = new Class ("NodeMetaCategory", typeid (NodeMetaCategory &), new Reflection::PtrDeleter <NodeMetaCategory>);
+		if (!Manager::add (clazz)) {
+			delete clazz;
+		}
+		else {
+			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <NodeMetaCategory, void>::Level1Wrapper::newConstructorPointer ()));
+			clazz->addField (new Field ("name", Reflection::createFieldWrapper (&NodeMetaCategory::name)));
+			clazz->addField (new Field ("description", Reflection::createFieldWrapper (&NodeMetaCategory::description)));
+			clazz->addField (new Field ("nodes", Reflection::createFieldWrapper (&NodeMetaCategory::nodes)));
+		}
+	}
+	{
+		Class *clazz = new Class ("NodeMetaCategoryVector", typeid (NodeMetaCategoryVector&), new PtrDeleter <NodeMetaCategoryVector >);
+		if (!Manager::add (clazz)) {;
+			delete clazz;
+		}
+		else { 
+			IConstructorPointer *cp = Reflection::ConstructorPointerWrapper2 <NodeMetaCategoryVector, void>::Level1Wrapper::newConstructorPointer ();
+			clazz->addConstructor (new Constructor (cp));
+
+			ICallableWrapper *w = new AddWrapper <NodeMetaCategoryVector > ();
+			clazz->addMethod (new Method ("add", w));
+
+			w = new GetWrapper <NodeMetaCategoryVector > ();
+			clazz->addMethod (new Method ("get", w));
+
+			w = new SetWrapper <NodeMetaCategoryVector > ();
+			clazz->addMethod (new Method ("set", w));
+
+			w = new IteratorWrapper <NodeMetaCategoryVector > ();
+			clazz->addMethod (new Method ("iterator", w));
+		}
+	}
+	{
+		Class *clazz = new Class ("AddNodeController", typeid (AddNodeController &), new Reflection::PtrDeleter <AddNodeController>);
+		if (!Manager::add (clazz)) {
+			delete clazz;
+		}
+		else {
+			clazz->addBaseClassName ("AbstractController");
+			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <AddNodeController, void>::Level1Wrapper::newConstructorPointer ()));
+			clazz->addField (new Field ("nodeCategories", Reflection::createFieldWrapper (&AddNodeController::nodeCategories)));
+			clazz->addMethod (new Method ("onStart", createMethodWrapper (&AddNodeController::onStart)));
+			clazz->addMethod (new Method ("onSubmit", createMethodWrapper (&AddNodeController::onSubmit)));
+			clazz->addMethod (new Method ("onRowActivated", createMethodWrapper (&AddNodeController::onRowActivated)));
+			clazz->addMethod (new Method ("onRowSelected", createMethodWrapper (&AddNodeController::onRowSelected)));
+		}
+	}
 }
 
 struct Sentinel_gtkFormsDemo {

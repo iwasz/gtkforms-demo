@@ -22,6 +22,10 @@
       <Demo add-to="demos" name="simpleTreeListStore2" description="Tree2" controllerName="simpleTreeListStore2Controller"/>
       <Demo add-to="demos" name="simpleTreeListStore3" description="Tree3" controllerName="simpleTreeListStore3Controller"/>
     </DemoCategory>
+
+    <DemoCategory add-to="demoCategories" name="Assorted" description="Some of my tests">
+      <Demo add-to="demos" name="addNode" description="Add node dialog for my data-flow app" controllerName="addNodeController" />
+    </DemoCategory>
   </MainController>
 
   <BuilderView id="mainView" file="src/main/mainView.ui" loadWholeFile="true">

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+  <AddNodeController id="addNodeController">
+    <NodeMetaCategory add-to="nodeCategories" name="Arithmetic" description="Basic maths">
+      <NodeMeta add-to="nodes" name="Add" description="Returns the sum of its two inputs"/>
+    </NodeMetaCategory>
+  </AddNodeController>
+
+  <BuilderView id="addNodeView" file="src/addNode/addNodeView.ui" loadWholeFile="true">
+<!--    <TableMapping add-to="mappings" widget="demoList" model="model">
+      <PixbufColumn add-to="columns" constValue="src/simpleTreeListStore2/computer.png"/>
+      <Column add-to="columns" model="name" />
+      <Column add-to="columns" model="description" />
+      <Column add-to="columns" />
+
+      <TableMapping add-to="columns" model="demos">
+        <PixbufColumn add-to="columns" constValue="src/simpleTreeListStore2/disk.png"/>
+        <Column add-to="columns" model="name" />
+        <Column add-to="columns" model="description" />
+        <Column add-to="columns" storeThisRow="true" />
+      </TableMapping>
+    </TableMapping>
+
+    <RowActivatedAdapter add-to="signalAdapters" modelColumn="3" />
+    <RowActivatedAdapter add-to="signalAdapters" modelColumn="3" signal="changed" />
+    <KeyPressEventAdapter add-to="signalAdapters" />
+    <GtkTreeViewDecorator add-to="decorators" widget="&gt;demoList" postRefreshExpandAll="true" />-->
+  </BuilderView>
+</beans>
