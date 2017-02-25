@@ -44,6 +44,7 @@ public:
         virtual void onSubmit ();
         void onRowActivated (const Core::Variant &row);
         void onRowSelected (const Core::Variant &row);
+        void onOk ();
 
         NodeMetaCategoryVector nodeCategories;
 

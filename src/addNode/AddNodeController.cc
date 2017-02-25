@@ -12,6 +12,9 @@
 #include <Logging.h>
 #include <unistd.h>
 
+#include <gtk/gtk.h>
+#include <view/AbstractView.h>
+
 static src::logger_mt &lg = logger::get ();
 
 std::string AddNodeController::onStart ()
@@ -39,15 +42,15 @@ void AddNodeController::onRowActivated (Core::Variant const &row)
                 return;
         }
 
-//        void const *rawRow = vcast<void const *> (row);
-//        Demo const *demo = static_cast<Demo const *> (rawRow);
+        //        void const *rawRow = vcast<void const *> (row);
+        //        Demo const *demo = static_cast<Demo const *> (rawRow);
 
-//        if (demo->replace) {
-//                replace (demo->controllerName);
-//        }
-//        else {
-//                open (demo->controllerName);
-//        }
+        //        if (demo->replace) {
+        //                replace (demo->controllerName);
+        //        }
+        //        else {
+        //                open (demo->controllerName);
+        //        }
 }
 
 /*****************************************************************************/
@@ -58,12 +61,17 @@ void AddNodeController::onRowSelected (Core::Variant const &row)
                 return;
         }
 
-//        void const *rawRow = vcast<void const *> (row);
-//        Demo const *demo = static_cast<Demo const *> (rawRow);
-//        currentSelection = demo->name;
+        //        void const *rawRow = vcast<void const *> (row);
+        //        Demo const *demo = static_cast<Demo const *> (rawRow);
+        //        currentSelection = demo->name;
 
-//        set ("description", Core::Variant (demo->description));
-//        refresh ("description");
+        //        set ("description", Core::Variant (demo->description));
+        //        refresh ("description");
 }
 
+/*****************************************************************************/
 
+void AddNodeController::onOk ()
+{
+
+}

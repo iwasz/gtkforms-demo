@@ -7,23 +7,24 @@
   </AddNodeController>
 
   <BuilderView id="addNodeView" file="src/addNode/addNodeView.ui" loadWholeFile="true">
-<!--    <TableMapping add-to="mappings" widget="demoList" model="model">
+    <TableMapping add-to="mappings" widget="nodesList" model="nodeCategories">
+      <Column add-to="columns" />
       <PixbufColumn add-to="columns" constValue="src/simpleTreeListStore2/computer.png"/>
       <Column add-to="columns" model="name" />
       <Column add-to="columns" model="description" />
-      <Column add-to="columns" />
 
-      <TableMapping add-to="columns" model="demos">
+      <TableMapping add-to="columns" model="nodes">
+        <Column add-to="columns" storeThisRow="true" />
         <PixbufColumn add-to="columns" constValue="src/simpleTreeListStore2/disk.png"/>
         <Column add-to="columns" model="name" />
         <Column add-to="columns" model="description" />
-        <Column add-to="columns" storeThisRow="true" />
       </TableMapping>
     </TableMapping>
 
-    <RowActivatedAdapter add-to="signalAdapters" modelColumn="3" />
-    <RowActivatedAdapter add-to="signalAdapters" modelColumn="3" signal="changed" />
-    <KeyPressEventAdapter add-to="signalAdapters" />
-    <GtkTreeViewDecorator add-to="decorators" widget="&gt;demoList" postRefreshExpandAll="true" />-->
+    <RowActivatedAdapter add-to="signalAdapters" modelColumn="0" />
+    <RowActivatedAdapter add-to="signalAdapters" modelColumn="0" signal="changed" />
+    <GtkTreeViewDecorator add-to="decorators" widget="&gt;nodesList" postRefreshExpandAll="true" />
+    <DimensionRestoreDecorator add-to="decorators" widget="addNodeView" key="addNode" database="@dimensionRestoreDatabase" />
+    <DimensionRestoreDecorator add-to="decorators" widget="addNodePaned" key="addNode" database="@dimensionRestoreDatabase" />
   </BuilderView>
 </beans>

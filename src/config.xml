@@ -6,6 +6,8 @@
     <value set-as="useWidgetId">true</value>
   </Config>
 
+  <DimensionRestoreDatabase id="dimensionRestoreDatabase" />
+
   <import resource="src/main/main.xml" />
   <import resource="src/info/info.xml" />
   <import resource="src/otherMain/otherMain.xml" />
