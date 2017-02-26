@@ -31,7 +31,7 @@ void AddNodeController::onSubmit ()
 {
         //        Ptr<User> user = vcast<Ptr<User>> (get ("model"));
         //        set ("summary", Core::Variant (user->toString ()));
-//                refresh ("");
+        refresh ("");
 }
 
 /*****************************************************************************/
@@ -71,7 +71,4 @@ void AddNodeController::onRowSelected (Core::Variant const &row)
 
 /*****************************************************************************/
 
-void AddNodeController::onOk ()
-{
-
-}
+void AddNodeController::onOk () {}
