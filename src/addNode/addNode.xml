@@ -12,15 +12,22 @@
       <PixbufColumn add-to="columns" constValue="src/simpleTreeListStore2/computer.png"/>
       <Column add-to="columns" model="name" />
       <Column add-to="columns" model="description" />
+      <Column add-to="columns">
+        <value set-as="constValue" type="bool">true</value>
+      </Column>
 
       <TableMapping add-to="columns" model="nodes">
         <Column add-to="columns" storeThisRow="true" />
         <PixbufColumn add-to="columns" constValue="src/simpleTreeListStore2/disk.png"/>
         <Column add-to="columns" model="name" />
         <Column add-to="columns" model="description" />
+        <Column add-to="columns">
+          <value set-as="constValue" type="bool">false</value>
+        </Column>
       </TableMapping>
     </TableMapping>
-    <TableFilterMapping add-to="mappings" widget="nodesList" model="searchQuery" property="filter" columnNumber="2" />
+<!--    <TableFilterMapping add-to="mappings" widget="nodesList" model="searchQuery" property="filter" columnNumber="2" />-->
+    <AddNodeTableFilterMapping add-to="mappings" widget="nodesList" model="searchQuery" property="filter" />
 
     <RowActivatedAdapter add-to="signalAdapters" columnNumber="0" />
 <!--    <RowActivatedAdapter add-to="signalAdapters" columnNumber="0" signal="changed" />-->

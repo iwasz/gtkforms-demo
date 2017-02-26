@@ -84,6 +84,9 @@ LIST (APPEND SOURCES
         "src/main/MainController.h"
         "src/addNode/AddNodeController.cc"
         "src/addNode/AddNodeController.h"
+        "src/addNode/AddNodeTableFilterMapping.cc"
+        "src/addNode/AddNodeTableFilterMapping.h"
+
 )
 
 # Local includes (inside project).

@@ -12,6 +12,8 @@
       <column type="gchararray"/>
       <!-- column-name desc -->
       <column type="gchararray"/>
+      <!-- column-name isCategory -->
+      <column type="gboolean"/>
     </columns>
   </object>
   <object class="GtkWindow" id="addNodeView">

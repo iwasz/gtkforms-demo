@@ -617,6 +617,83 @@ void createReflectionDatabase_gtkFormsDemo ()
 			clazz->addMethod (new Method ("onOk", createMethodWrapper (&AddNodeController::onOk)));
 		}
 	}
+	{
+		Class *clazz = new Class ("IMapping", typeid (GtkForms::IMapping &), new Reflection::PtrDeleter <GtkForms::IMapping>);
+		if (!Manager::add (clazz)) {
+			delete clazz;
+		}
+		else {
+			clazz->addBaseClassName ("Object");
+			clazz->addMethod (new Method ("getWidget", createMethodWrapper (&GtkForms::IMapping::getWidget)));
+			clazz->addMethod (new Method ("getModel", createMethodWrapper (&GtkForms::IMapping::getModel)));
+			clazz->addMethod (new Method ("getProperty", createMethodWrapper (&GtkForms::IMapping::getProperty)));
+			clazz->addMethod (new Method ("getConstValue", createMethodWrapper (&GtkForms::IMapping::getConstValue)));
+		}
+	}
+	{
+		Class *clazz = new Class ("Mapping", typeid (GtkForms::Mapping &), new Reflection::PtrDeleter <GtkForms::Mapping>);
+		if (!Manager::add (clazz)) {
+			delete clazz;
+		}
+		else {
+			clazz->addBaseClassName ("IMapping");
+			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <GtkForms::Mapping, void>::Level1Wrapper::newConstructorPointer ()));
+			clazz->addField (new Field ("widget", Reflection::createFieldWrapper (&GtkForms::Mapping::widget)));
+			clazz->addField (new Field ("property", Reflection::createFieldWrapper (&GtkForms::Mapping::property)));
+			clazz->addField (new Field ("model", Reflection::createFieldWrapper (&GtkForms::Mapping::model)));
+			clazz->addField (new Field ("m2vEditor", Reflection::createFieldWrapper (&GtkForms::Mapping::m2vEditor)));
+			clazz->addField (new Field ("v2mEditor", Reflection::createFieldWrapper (&GtkForms::Mapping::v2mEditor)));
+			clazz->addField (new Field ("constValue", Reflection::createFieldWrapper (&GtkForms::Mapping::constValue)));
+			clazz->addMethod (new Method ("getWidget", createMethodWrapper (&GtkForms::Mapping::getWidget)));
+			clazz->addMethod (new Method ("getProperty", createMethodWrapper (&GtkForms::Mapping::getProperty)));
+			clazz->addMethod (new Method ("getModel", createMethodWrapper (&GtkForms::Mapping::getModel)));
+			clazz->addMethod (new Method ("getConstValue", createMethodWrapper (&GtkForms::Mapping::getConstValue)));
+		}
+	}
+	{
+		Class *clazz = new Class ("MappingVector", typeid (GtkForms::MappingVector&), new PtrDeleter <GtkForms::MappingVector >);
+		if (!Manager::add (clazz)) {;
+			delete clazz;
+		}
+		else { 
+			IConstructorPointer *cp = Reflection::ConstructorPointerWrapper2 <GtkForms::MappingVector, void>::Level1Wrapper::newConstructorPointer ();
+			clazz->addConstructor (new Constructor (cp));
+
+			ICallableWrapper *w = new AddWrapper <GtkForms::MappingVector > ();
+			clazz->addMethod (new Method ("add", w));
+
+			w = new GetWrapper <GtkForms::MappingVector > ();
+			clazz->addMethod (new Method ("get", w));
+
+			w = new SetWrapper <GtkForms::MappingVector > ();
+			clazz->addMethod (new Method ("set", w));
+
+			w = new IteratorWrapper <GtkForms::MappingVector > ();
+			clazz->addMethod (new Method ("iterator", w));
+		}
+	}
+	{
+		Class *clazz = new Class ("TableFilterMapping", typeid (GtkForms::TableFilterMapping &), new Reflection::PtrDeleter <GtkForms::TableFilterMapping>);
+		if (!Manager::add (clazz)) {
+			delete clazz;
+		}
+		else {
+			clazz->addBaseClassName ("Mapping");
+			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <GtkForms::TableFilterMapping, void>::Level1Wrapper::newConstructorPointer ()));
+			clazz->addMethod (new Method ("getColumnNumber", createMethodWrapper (&GtkForms::TableFilterMapping::getColumnNumber)));
+			clazz->addMethod (new Method ("setColumnNumber", createMethodWrapper (&GtkForms::TableFilterMapping::setColumnNumber)));
+		}
+	}
+	{
+		Class *clazz = new Class ("AddNodeTableFilterMapping", typeid (AddNodeTableFilterMapping &), new Reflection::PtrDeleter <AddNodeTableFilterMapping>);
+		if (!Manager::add (clazz)) {
+			delete clazz;
+		}
+		else {
+			clazz->addBaseClassName ("TableFilterMapping");
+			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <AddNodeTableFilterMapping, void>::Level1Wrapper::newConstructorPointer ()));
+		}
+	}
 }
 
 struct Sentinel_gtkFormsDemo {
