@@ -24,12 +24,13 @@
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
         <child>
-          <object class="GtkSearchEntry">
+          <object class="GtkSearchEntry" id="&lt;searchQuery">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="primary_icon_name">edit-find-symbolic</property>
             <property name="primary_icon_activatable">False</property>
             <property name="primary_icon_sensitive">False</property>
+            <signal name="changed" handler="$controller.submit('', ''); $controller.refresh ('searchQuery')" swapped="no"/>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -182,5 +183,8 @@
         </child>
       </object>
     </child>
+  </object>
+  <object class="GtkTreeModelFilter" id="nodeFilter">
+    <property name="child_model">treestore1</property>
   </object>
 </interface>

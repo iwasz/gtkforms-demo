@@ -43,8 +43,8 @@
       </TableMapping>
     </TableMapping>
 
-    <RowActivatedAdapter add-to="signalAdapters" modelColumn="3" />
-    <RowActivatedAdapter add-to="signalAdapters" modelColumn="3" signal="changed" />
+    <RowActivatedAdapter add-to="signalAdapters" columnNumber="3" />
+    <RowActivatedAdapter add-to="signalAdapters" columnNumber="3" signal="changed" />
     <KeyPressEventAdapter add-to="signalAdapters" />
     <GtkTreeViewDecorator add-to="decorators" widget="&gt;demoList" postRefreshExpandAll="true" />
   </BuilderView>

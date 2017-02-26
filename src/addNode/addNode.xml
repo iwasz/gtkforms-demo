@@ -20,9 +20,10 @@
         <Column add-to="columns" model="description" />
       </TableMapping>
     </TableMapping>
+    <TableFilterMapping add-to="mappings" widget="nodesList" model="searchQuery" columnNumber="2" />
 
-    <RowActivatedAdapter add-to="signalAdapters" modelColumn="0" />
-    <RowActivatedAdapter add-to="signalAdapters" modelColumn="0" signal="changed" />
+    <RowActivatedAdapter add-to="signalAdapters" columnNumber="0" />
+<!--    <RowActivatedAdapter add-to="signalAdapters" columnNumber="0" signal="changed" />-->
     <GtkTreeViewDecorator add-to="decorators" widget="&gt;nodesList" postRefreshExpandAll="true" />
     <DimensionRestoreDecorator add-to="decorators" widget="addNodeView" key="addNode" database="@dimensionRestoreDatabase" />
     <DimensionRestoreDecorator add-to="decorators" widget="addNodePaned" key="addNode" database="@dimensionRestoreDatabase" />
