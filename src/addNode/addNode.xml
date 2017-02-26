@@ -20,7 +20,7 @@
         <Column add-to="columns" model="description" />
       </TableMapping>
     </TableMapping>
-    <TableFilterMapping add-to="mappings" widget="nodesList" model="searchQuery" columnNumber="2" />
+    <TableFilterMapping add-to="mappings" widget="nodesList" model="searchQuery" property="filter" columnNumber="2" />
 
     <RowActivatedAdapter add-to="signalAdapters" columnNumber="0" />
 <!--    <RowActivatedAdapter add-to="signalAdapters" columnNumber="0" signal="changed" />-->

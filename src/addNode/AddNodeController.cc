@@ -27,12 +27,7 @@ std::string AddNodeController::onStart ()
 /*
  * Po konwersji wykonuje się metoda IController::onSubmit:
  */
-void AddNodeController::onSubmit ()
-{
-        //        Ptr<User> user = vcast<Ptr<User>> (get ("model"));
-        //        set ("summary", Core::Variant (user->toString ()));
-        refresh ("");
-}
+void AddNodeController::onSubmit () { refresh ("nodesList", "filter"); }
 
 /*****************************************************************************/
 
