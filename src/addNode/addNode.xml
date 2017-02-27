@@ -3,6 +3,8 @@
   <AddNodeController id="addNodeController">
     <NodeMetaCategory add-to="nodeCategories" name="Arithmetic" description="Basic maths">
       <NodeMeta add-to="nodes" name="Add" description="Returns the sum of its two inputs"/>
+      <NodeMeta add-to="nodes" name="Mult" description="Returns the product of its two inputs"/>
+      <NodeMeta add-to="nodes" name="Avg" description="Returns the average of its two inputs"/>
     </NodeMetaCategory>
   </AddNodeController>
 
@@ -26,11 +28,10 @@
         </Column>
       </TableMapping>
     </TableMapping>
-<!--    <TableFilterMapping add-to="mappings" widget="nodesList" model="searchQuery" property="filter" columnNumber="2" />-->
     <AddNodeTableFilterMapping add-to="mappings" widget="nodesList" model="searchQuery" property="filter" />
 
     <RowActivatedAdapter add-to="signalAdapters" columnNumber="0" />
-    <RowActivatedAdapter add-to="signalAdapters" columnNumber="0" signal="changed" widgetId="nodesList" />
+    <RowActivatedAdapter add-to="signalAdapters" columnNumber="0" signal="changed" gObjectName="GtkTreeSelection" />
     <GtkTreeViewDecorator add-to="decorators" widget="&gt;nodesList" postRefreshExpandAll="true" />
     <DimensionRestoreDecorator add-to="decorators" widget="addNodeView" key="addNode" database="@dimensionRestoreDatabase" />
     <DimensionRestoreDecorator add-to="decorators" widget="addNodePaned" key="addNode" database="@dimensionRestoreDatabase" />

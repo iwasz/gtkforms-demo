@@ -51,7 +51,9 @@
                 <property name="can_focus">True</property>
                 <property name="model">treestore1</property>
                 <child internal-child="selection">
-                  <object class="GtkTreeSelection"/>
+                  <object class="GtkTreeSelection">
+                    <signal name="changed" handler="$controller.onRowSelected(%0)" swapped="no"/>
+                  </object>
                 </child>
                 <child>
                   <object class="GtkTreeViewColumn">
@@ -118,9 +120,10 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkTextView">
+                  <object class="GtkTextView" id="&gt;description">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="editable">False</property>
                     <property name="wrap_mode">word</property>
                   </object>
                   <packing>

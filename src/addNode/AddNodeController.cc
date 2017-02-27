@@ -56,12 +56,12 @@ void AddNodeController::onRowSelected (Core::Variant const &row)
                 return;
         }
 
-        //        void const *rawRow = vcast<void const *> (row);
-        //        Demo const *demo = static_cast<Demo const *> (rawRow);
-        //        currentSelection = demo->name;
+        void const *rawRow = vcast<void const *> (row);
+        NodeMeta const *node = static_cast<NodeMeta const *> (rawRow);
+//        currentSelection = node->name;
 
-        //        set ("description", Core::Variant (demo->description));
-        //        refresh ("description");
+        set ("description", Core::Variant (node->description));
+        refresh ("description");
 }
 
 /*****************************************************************************/
