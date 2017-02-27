@@ -12,9 +12,6 @@
 #include <Logging.h>
 #include <unistd.h>
 
-#include <gtk/gtk.h>
-#include <view/AbstractView.h>
-
 static src::logger_mt &lg = logger::get ();
 
 std::string AddNodeController::onStart ()
@@ -53,15 +50,20 @@ void AddNodeController::onRowActivated (Core::Variant const &row)
 void AddNodeController::onRowSelected (Core::Variant const &row)
 {
         if (row.isNone () || row.isNull ()) {
+                set ("description", Core::Variant ());
+                refresh ("description");
+                set ("imagePath", Core::Variant ());
+                refresh ("imageDesc");
                 return;
         }
 
         void const *rawRow = vcast<void const *> (row);
         NodeMeta const *node = static_cast<NodeMeta const *> (rawRow);
-//        currentSelection = node->name;
 
         set ("description", Core::Variant (node->description));
         refresh ("description");
+        set ("imagePath", Core::Variant (node->imagePath));
+        refresh ("imageDesc");
 }
 
 /*****************************************************************************/
