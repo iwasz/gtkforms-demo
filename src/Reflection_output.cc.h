@@ -543,6 +543,7 @@ void createReflectionDatabase_gtkFormsDemo ()
 			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <NodeMeta, void>::Level1Wrapper::newConstructorPointer ()));
 			clazz->addField (new Field ("name", Reflection::createFieldWrapper (&NodeMeta::name)));
 			clazz->addField (new Field ("description", Reflection::createFieldWrapper (&NodeMeta::description)));
+			clazz->addField (new Field ("imagePath", Reflection::createFieldWrapper (&NodeMeta::imagePath)));
 		}
 	}
 	{

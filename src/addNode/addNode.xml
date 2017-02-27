@@ -2,9 +2,9 @@
 <beans>
   <AddNodeController id="addNodeController">
     <NodeMetaCategory add-to="nodeCategories" name="Arithmetic" description="Basic maths">
-      <NodeMeta add-to="nodes" name="Add" description="Returns the sum of its two inputs"/>
-      <NodeMeta add-to="nodes" name="Mult" description="Returns the product of its two inputs"/>
-      <NodeMeta add-to="nodes" name="Avg" description="Returns the average of its two inputs"/>
+      <NodeMeta add-to="nodes" name="Add"  imagePath="src/addNode/add.jpg" description="Returns the sum of its two inputs"/>
+      <NodeMeta add-to="nodes" name="Mult" imagePath="src/addNode/mult.jpg" description="Returns the product of its two inputs"/>
+      <NodeMeta add-to="nodes" name="Avg"  imagePath="src/addNode/avg.jpg" description="Returns the average of its two inputs"/>
     </NodeMetaCategory>
   </AddNodeController>
 
@@ -29,6 +29,7 @@
       </TableMapping>
     </TableMapping>
     <AddNodeTableFilterMapping add-to="mappings" widget="nodesList" model="searchQuery" property="filter" />
+    <PixbufMapping add-to="mappings" widget="imageDesc" model="imagePath" />
 
     <RowActivatedAdapter add-to="signalAdapters" columnNumber="0" />
     <RowActivatedAdapter add-to="signalAdapters" columnNumber="0" signal="changed" gObjectName="GtkTreeSelection" />

@@ -17,6 +17,7 @@
 struct __tiliae_reflect__ NodeMeta {
         std::string name;
         std::string description;
+        std::string imagePath;
 };
 
 typedef __tiliae_reflect__ std::vector<NodeMeta *> NodeMetaVector;
