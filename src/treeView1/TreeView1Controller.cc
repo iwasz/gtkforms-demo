@@ -8,7 +8,7 @@
 
 #include "TreeView1Controller.h"
 
-std::string TreeView1Controller::onStart ()
+GtkForms::ViewsToOpen TreeView1Controller::onStart()
 {
         set ("myUsers", Core::Variant (getUsers ()));
         refresh ("");

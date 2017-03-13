@@ -14,7 +14,7 @@
 
 static src::logger_mt &lg = logger::get ();
 
-std::string MainController::onStart ()
+GtkForms::ViewsToOpen MainController::onStart ()
 {
         set ("model", Core::Variant (demoCategories));
         refresh ("");

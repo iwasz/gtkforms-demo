@@ -13,7 +13,7 @@
 
 static src::logger_mt &lg = logger::get ();
 
-std::string SubmitTest1Controller::onStart ()
+GtkForms::ViewsToOpen SubmitTest1Controller::onStart()
 {
         Ptr<User> user = std::make_shared<User> ();
         user->firstname = "bla";

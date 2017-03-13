@@ -16,7 +16,7 @@ class __tiliae_reflect__ TreeView1Controller : public GtkForms::AbstractControll
 public:
         virtual ~TreeView1Controller () {}
 
-        virtual std::string onStart ();
+        virtual GtkForms::ViewsToOpen onStart ();
 
         UserVector &getUsers () { return users; }
         void setUsers (const UserVector &value) { users = value; }

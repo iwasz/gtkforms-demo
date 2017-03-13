@@ -42,7 +42,7 @@ public:
         MainController () {}
         virtual ~MainController () {}
 
-        virtual std::string onStart ();
+        virtual GtkForms::ViewsToOpen onStart ();
         virtual void onSubmit ();
         void onRowActivated (const Core::Variant &row);
         void onRowSelected (const Core::Variant &row);

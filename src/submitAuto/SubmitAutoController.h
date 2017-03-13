@@ -18,7 +18,7 @@ public:
         SubmitAutoController () {}
         virtual ~SubmitAutoController () {}
 
-        virtual std::string onStart ();
+        virtual GtkForms::ViewsToOpen onStart ();
         virtual void onSubmit ();
 };
 

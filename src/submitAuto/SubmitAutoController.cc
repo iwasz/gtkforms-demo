@@ -13,7 +13,7 @@
 
 static src::logger_mt &lg = logger::get ();
 
-std::string SubmitAutoController::onStart ()
+GtkForms::ViewsToOpen SubmitAutoController::onStart()
 {
         set ("model", Core::Variant (std::make_shared<User> ()));
         set ("model1", Core::Variant (std::make_shared<User> ()));
