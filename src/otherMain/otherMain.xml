@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans>
   <DummyController id="otherMainController" view="otherMainView" />
-  <BuilderView id="otherMainView" file="src/otherMain/otherMainView.ui" />
+  <BuilderView id="otherMainView" file="otherMain/otherMainView.ui" />
 </beans>

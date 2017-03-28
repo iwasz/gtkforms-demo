@@ -1,17 +1,22 @@
 # Wymagaj tej wersji - dopier w niej jest nowe makro FindPkgConfig
 CMAKE_MINIMUM_REQUIRED (VERSION 2.8.0 FATAL_ERROR)
 
-PROJECT (gtkforms-demo)
-SET (CMAKE_EXPORT_COMPILE_COMMANDS ON)
-INCLUDE (../tiliae/tiliae.cmake)
-SET (CMAKE_VERBOSE_MAKEFILE OFF)
-
 if(COMMAND cmake_policy)
     cmake_policy(SET CMP0003 NEW)
 endif(COMMAND cmake_policy)
 
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11" CACHE INTERNAL "cxx compiler flags")
+if(COMMAND cmake_policy)
+    cmake_policy(SET CMP0048 NEW)
+endif(COMMAND cmake_policy)
 
+PROJECT (gtkforms-demo VERSION 0.9)
+SET (CMAKE_EXPORT_COMPILE_COMMANDS ON)
+INCLUDE (../tiliae/tiliae.cmake)
+SET (CMAKE_VERBOSE_MAKEFILE OFF)
+SET (CMAKE_INSTALL_PREFIX /usr)
+#add_definitions(-D)
+
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11" CACHE INTERNAL "cxx compiler flags")
 SET(CMAKE_C_FLAGS_RELEASE "-DNDEBUG" CACHE INTERNAL "c release compiler flags")
 SET(CMAKE_CXX_FLAGS_RELEASE "-DNDEBUG" CACHE INTERNAL "cxx release compiler flags")
 
@@ -106,14 +111,47 @@ TARGET_LINK_LIBRARIES (${CMAKE_PROJECT_NAME} ${GTKFORMS_LIBRARIES})
 #FILE (COPY "ui" DESTINATION ${CMAKE_BINARY_DIR})
 
 # NIe działą!
-ADD_CUSTOM_COMMAND (OUTPUT "${CMAKE_BINARY_DIR}/config.xml"
-                    COMMAND ln -s "src/config.xml" "${CMAKE_BINARY_DIR}/config.xml"
-                    DEPENDS "src/config.xml")
+# ADD_CUSTOM_COMMAND (OUTPUT "${CMAKE_BINARY_DIR}/config.xml"
+#                     COMMAND ln -s "src/config.xml" "${CMAKE_BINARY_DIR}/config.xml"
+#                     DEPENDS "src/config.xml")
+#
+# ADD_CUSTOM_COMMAND (OUTPUT "${CMAKE_BINARY_DIR}/ui"
+#                     COMMAND ln -s "ui" "${CMAKE_BINARY_DIR}/ui"
+#                     DEPENDS "ui")
+#
+# ADD_CUSTOM_COMMAND (OUTPUT "${CMAKE_BINARY_DIR}/src"
+#                     COMMAND ln -s "src" "${CMAKE_BINARY_DIR}/src"
+#                     DEPENDS "src")
 
-ADD_CUSTOM_COMMAND (OUTPUT "${CMAKE_BINARY_DIR}/ui"
-                    COMMAND ln -s "ui" "${CMAKE_BINARY_DIR}/ui"
-                    DEPENDS "ui")
+INSTALL (
+        DIRECTORY "${PROJECT_SOURCE_DIR}/src/"
+        DESTINATION "share/gtkforms-demo"
+        FILES_MATCHING
+        PATTERN "*.ui"
+        PATTERN "*.xml"
+        PATTERN "*.png"
+        PATTERN "*.jpg"
+        PATTERN "*.svn*" EXCLUDE
+        PATTERN "*.git*" EXCLUDE
+        PATTERN "*test*" EXCLUDE)
 
-ADD_CUSTOM_COMMAND (OUTPUT "${CMAKE_BINARY_DIR}/src"
-                    COMMAND ln -s "src" "${CMAKE_BINARY_DIR}/src"
-                    DEPENDS "src")
+INSTALL (
+        TARGETS gtkforms-demo
+        DESTINATION bin
+        PERMISSIONS
+        OWNER_READ OWNER_WRITE OWNER_EXECUTE
+        GROUP_READ GROUP_EXECUTE
+        WORLD_READ WORLD_EXECUTE)
+
+ADD_CUSTOM_TARGET("publish" DEPENDS gtkforms-demo COMMAND rm -Rf /tmp/installdir)
+ADD_CUSTOM_COMMAND(TARGET "publish" COMMAND mkdir -p /tmp/installdir)
+ADD_CUSTOM_COMMAND(TARGET "publish" COMMAND make install DESTDIR=/tmp/installdir)
+
+#FIND_PROGRAM (FPM fpm)
+#ADD_CUSTOM_COMMAND (TARGET "publish" COMMAND ${FPM} -f -s dir -t deb -n libtiliae -v ${PROJECT_VERSION} -C /tmp/installdir/ -p libtiliae_VERSION_ARCH.deb -d 'libmxml1 >= 2.8' usr/lib)
+#ADD_CUSTOM_COMMAND (TARGET "publish" COMMAND ${FPM} -f -s dir -t deb -n libtiliae-dev -v ${PROJECT_VERSION} -C /tmp/installdir/ -p libtiliae-dev_VERSION_ARCH.deb -d 'libtiliae = ${PROJECT_VERSION}' usr/include)
+#FIND_PROGRAM (DPKGSIG dpkg-sig)
+#ADD_CUSTOM_COMMAND (TARGET "publish" COMMAND ${DPKGSIG} -k 9EDE3F68 -s builder *.deb)
+#FIND_PROGRAM (SCP scp)
+#ADD_CUSTOM_COMMAND (TARGET "publish" COMMAND ${SCP} libtiliae_${PROJECT_VERSION}_amd64.deb iwasz@iwasz.pl:/home/iwasz/domains/iwasz.pl/public_html/deb/)
+#ADD_CUSTOM_COMMAND (TARGET "publish" COMMAND ${SCP} libtiliae-dev_${PROJECT_VERSION}_amd64.deb iwasz@iwasz.pl:/home/iwasz/domains/iwasz.pl/public_html/deb/)

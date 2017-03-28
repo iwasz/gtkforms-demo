@@ -8,19 +8,19 @@
 
   <DimensionRestoreDatabase id="dimensionRestoreDatabase" />
 
-  <import resource="src/main/main.xml" />
-  <import resource="src/info/info.xml" />
-  <import resource="src/otherMain/otherMain.xml" />
-  <import resource="src/wizardContainer/wizardContainer.xml" />
-  <import resource="src/submitTest1/submitTest1.xml" />
-  <import resource="src/submitAuto/submitAuto.xml" />
-  <import resource="src/tab/tab.xml" />
-  <import resource="src/treeView1/treeView1.xml" />
-  <import resource="src/treeViewDefConversion/treeViewDefConversion.xml" />
-  <import resource="src/cellRendererProps/cellRendererProps.xml" />
-  <import resource="src/cellRenderers/cellRenderers.xml" />
-  <import resource="src/simpleTreeListStore/simpleTreeListStore.xml" />
-  <import resource="src/simpleTreeListStore2/simpleTreeListStore2.xml" />
-  <import resource="src/simpleTreeListStore3/simpleTreeListStore3.xml" />
-  <import resource="src/addNode/addNode.xml" />
+  <import resource="main/main.xml" />
+  <import resource="info/info.xml" />
+  <import resource="otherMain/otherMain.xml" />
+  <import resource="wizardContainer/wizardContainer.xml" />
+  <import resource="submitTest1/submitTest1.xml" />
+  <import resource="submitAuto/submitAuto.xml" />
+  <import resource="tab/tab.xml" />
+  <import resource="treeView1/treeView1.xml" />
+  <import resource="treeViewDefConversion/treeViewDefConversion.xml" />
+  <import resource="cellRendererProps/cellRendererProps.xml" />
+  <import resource="cellRenderers/cellRenderers.xml" />
+  <import resource="simpleTreeListStore/simpleTreeListStore.xml" />
+  <import resource="simpleTreeListStore2/simpleTreeListStore2.xml" />
+  <import resource="simpleTreeListStore3/simpleTreeListStore3.xml" />
+  <import resource="addNode/addNode.xml" />
 </beans>

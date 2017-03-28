@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans>
   <DummyController id="wizardContainerController" view="wizardContainerView" alsoOpen="wizardPage1Controller" />
-  <BuilderView id="wizardContainerView" file="src/wizardContainer/wizardContainerView.ui" />
+  <BuilderView id="wizardContainerView" file="wizardContainer/wizardContainerView.ui" />
 
   <DummyController id="wizardPage1Controller" view="wizardPage1View->wizardSlot" />
-  <BuilderView id="wizardPage1View" file="src/wizardContainer/wizardContainerView.ui" />
+  <BuilderView id="wizardPage1View" file="wizardContainer/wizardContainerView.ui" />
 
   <DummyController id="wizardPage2Controller" view="wizardPage2View->wizardSlot" />
-  <BuilderView id="wizardPage2View" file="src/wizardContainer/wizardContainerView.ui" />
+  <BuilderView id="wizardPage2View" file="wizardContainer/wizardContainerView.ui" />
 
   <DummyController id="wizardPage3Controller" view="wizardPage3View->wizardSlot" />
-  <BuilderView id="wizardPage3View" file="src/wizardContainer/wizardContainerView.ui" />
+  <BuilderView id="wizardPage3View" file="wizardContainer/wizardContainerView.ui" />
 </beans>

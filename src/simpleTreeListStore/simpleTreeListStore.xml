@@ -23,7 +23,7 @@
     </UserVector>
   </DummyController>
 
-  <BuilderView id="simpleTreeListStoreView" file="src/simpleTreeListStore/simpleTreeListStoreView.ui" loadWholeFile="true">
+  <BuilderView id="simpleTreeListStoreView" file="simpleTreeListStore/simpleTreeListStoreView.ui" loadWholeFile="true">
     <TableMapping add-to="mappings" widget="myUsers" model="model">
       <Column add-to="columns" model="firstname" />
       <Column add-to="columns" model="lastname" />

@@ -34,7 +34,7 @@
     </VariantVector>
   </DummyController>
 
-  <BuilderView id="cellRenderersView" file="src/cellRenderers/cellRenderersView.ui" loadWholeFile="true">
+  <BuilderView id="cellRenderersView" file="cellRenderers/cellRenderersView.ui" loadWholeFile="true">
     <TableMapping add-to="mappings" widget="treeView" model="model">
       <Column add-to="columns" model="text"/>
       <Column add-to="columns" model="accel"/>

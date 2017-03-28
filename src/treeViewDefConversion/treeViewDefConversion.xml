@@ -22,7 +22,7 @@
     </VariantVector>
   </DummyController>
 
-  <BuilderView id="treeViewDefConversionView" file="src/treeViewDefConversion/treeViewDefConversionView.ui" loadWholeFile="true">
+  <BuilderView id="treeViewDefConversionView" file="treeViewDefConversion/treeViewDefConversionView.ui" loadWholeFile="true">
     <TableMapping add-to="mappings" widget="treeView" model="model">
       <Column add-to="columns" model="value1"/>
       <Column add-to="columns" model="value2"/>

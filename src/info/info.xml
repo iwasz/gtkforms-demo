@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans>
   <DummyController id="infoController" view="infoView" />
-  <BuilderView id="infoView" file="src/info/infoView.ui">
+  <BuilderView id="infoView" file="info/infoView.ui">
     <CloseOnEscapeDecorator add-to="decorators"/>
   </BuilderView>
 </beans>

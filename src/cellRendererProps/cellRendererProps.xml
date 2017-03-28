@@ -28,7 +28,7 @@
     </VariantVector>
   </DummyController>
 
-  <BuilderView id="cellRendererPropsView" file="src/cellRendererProps/cellRendererPropsView.ui" loadWholeFile="true">
+  <BuilderView id="cellRendererPropsView" file="cellRendererProps/cellRendererPropsView.ui" loadWholeFile="true">
     <TableMapping add-to="mappings" widget="treeView" model="model">
       <Column add-to="columns" model="name"/>
       <Column add-to="columns" model="background"/>

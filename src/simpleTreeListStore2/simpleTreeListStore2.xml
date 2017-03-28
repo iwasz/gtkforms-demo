@@ -28,12 +28,12 @@
 
   <!-- This collection maps integers to images -->
   <AssociationMap id="iconAssociation">
-    <value set-as="0">src/simpleTreeListStore2/computer.png</value>
-    <value set-as="1">src/simpleTreeListStore2/disk.png</value>
-    <value set-as="2">src/simpleTreeListStore2/battery.png</value>
+    <value set-as="0">simpleTreeListStore2/computer.png</value>
+    <value set-as="1">simpleTreeListStore2/disk.png</value>
+    <value set-as="2">simpleTreeListStore2/battery.png</value>
   </AssociationMap>
 
-  <BuilderView id="simpleTreeListStore2View" file="src/simpleTreeListStore2/simpleTreeListStore2View.ui" loadWholeFile="true">
+  <BuilderView id="simpleTreeListStore2View" file="simpleTreeListStore2/simpleTreeListStore2View.ui" loadWholeFile="true">
     <TableMapping add-to="mappings" widget="myUsers" model="model">
       <Column add-to="columns" model="name" />
       <Column add-to="columns" model="desc" />

@@ -2,16 +2,16 @@
 <beans>
   <AddNodeController id="addNodeController">
     <NodeMetaCategory add-to="nodeCategories" name="Arithmetic" description="Basic maths">
-      <NodeMeta add-to="nodes" name="Add"  imagePath="src/addNode/add.jpg" description="Returns the sum of its two inputs"/>
-      <NodeMeta add-to="nodes" name="Mult" imagePath="src/addNode/mult.jpg" description="Returns the product of its two inputs"/>
-      <NodeMeta add-to="nodes" name="Avg"  imagePath="src/addNode/avg.jpg" description="Returns the average of its two inputs"/>
+      <NodeMeta add-to="nodes" name="Add"  imagePath="addNode/add.jpg" description="Returns the sum of its two inputs"/>
+      <NodeMeta add-to="nodes" name="Mult" imagePath="addNode/mult.jpg" description="Returns the product of its two inputs"/>
+      <NodeMeta add-to="nodes" name="Avg"  imagePath="addNode/avg.jpg" description="Returns the average of its two inputs"/>
     </NodeMetaCategory>
   </AddNodeController>
 
-  <BuilderView id="addNodeView" file="src/addNode/addNodeView.ui" loadWholeFile="true">
+  <BuilderView id="addNodeView" file="addNode/addNodeView.ui" loadWholeFile="true">
     <TableMapping add-to="mappings" widget="nodesList" model="nodeCategories">
       <Column add-to="columns" />
-      <PixbufColumn add-to="columns" constValue="src/simpleTreeListStore2/computer.png"/>
+      <PixbufColumn add-to="columns" constValue="simpleTreeListStore2/computer.png"/>
       <Column add-to="columns" model="name" />
       <Column add-to="columns" model="description" />
       <Column add-to="columns">
@@ -20,7 +20,7 @@
 
       <TableMapping add-to="columns" model="nodes">
         <Column add-to="columns" storeThisRow="true" />
-        <PixbufColumn add-to="columns" constValue="src/simpleTreeListStore2/disk.png"/>
+        <PixbufColumn add-to="columns" constValue="simpleTreeListStore2/disk.png"/>
         <Column add-to="columns" model="name" />
         <Column add-to="columns" model="description" />
         <Column add-to="columns">

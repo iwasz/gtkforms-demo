@@ -16,9 +16,9 @@
     </AnimalVector>
   </DummyController>
 
-  <BuilderView id="simpleTreeListStore3View" file="src/simpleTreeListStore3/simpleTreeListStore3View.ui" loadWholeFile="true">
+  <BuilderView id="simpleTreeListStore3View" file="simpleTreeListStore3/simpleTreeListStore3View.ui" loadWholeFile="true">
     <TableMapping add-to="mappings" widget="myUsers" model="model">
-      <PixbufColumn add-to="columns" constValue="src/simpleTreeListStore2/computer.png"/>
+      <PixbufColumn add-to="columns" constValue="simpleTreeListStore2/computer.png"/>
       <Column add-to="columns" model="name" />
       <Column add-to="columns" model="rating" />
       <Column add-to="columns" model="predator" />
@@ -30,7 +30,7 @@
       </Column>
 
       <TableMapping add-to="columns" model="friends">
-        <PixbufColumn add-to="columns" constValue="src/simpleTreeListStore2/disk.png"/>
+        <PixbufColumn add-to="columns" constValue="simpleTreeListStore2/disk.png"/>
         <Column add-to="columns" model="name" />
         <Column add-to="columns" model="rating" />
         <Column add-to="columns" model="predator" />
@@ -42,7 +42,7 @@
         </Column>
 
         <TableMapping add-to="columns" model="friends">
-          <PixbufColumn add-to="columns" constValue="src/simpleTreeListStore2/battery.png"/>
+          <PixbufColumn add-to="columns" constValue="simpleTreeListStore2/battery.png"/>
           <Column add-to="columns" model="name" />
           <Column add-to="columns" model="rating" />
           <Column add-to="columns" model="predator" />
