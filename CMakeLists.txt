@@ -14,7 +14,7 @@ SET (CMAKE_EXPORT_COMPILE_COMMANDS ON)
 INCLUDE (../tiliae/tiliae.cmake)
 SET (CMAKE_VERBOSE_MAKEFILE OFF)
 SET (CMAKE_INSTALL_PREFIX /usr)
-#add_definitions(-D)
+SET (WITH_PARSER               ON CACHE BOOL "")
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11" CACHE INTERNAL "cxx compiler flags")
 SET(CMAKE_C_FLAGS_RELEASE "-DNDEBUG" CACHE INTERNAL "c release compiler flags")
@@ -59,7 +59,9 @@ link_directories(${GTK_LIBRARY_DIRS})
 # +-------------------------------+
 # | Generate reflection database. |
 # +-------------------------------+
+IF (WITH_PARSER)
 TILIAE_PARSE ("${PROJECT_SOURCE_DIR}/../tiliae/build/parser/tiliaeparser" "gtkFormsDemo" "src/Reflection_input.cc" "src/Reflection_output.cc.h")
+ENDIF ()
 LIST (APPEND SOURCES "src/Reflection_input.cc")
 LIST (APPEND SOURCES "src/Reflection_output.cc.h")
 
