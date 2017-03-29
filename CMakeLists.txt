@@ -56,10 +56,6 @@ pkg_check_modules (GTK REQUIRED "gtk+-3.0")
 INCLUDE_DIRECTORIES (${GTK_INCLUDE_DIRS})
 link_directories(${GTK_LIBRARY_DIRS})
 
-pkg_check_modules (PROTOBUF REQUIRED "protobuf")
-INCLUDE_DIRECTORIES (${PROTOBUF_INCLUDE_DIRS})
-link_directories(${PROTOBUF_LIBRARY_DIRS})
-
 # +-------------------------------+
 # | Generate reflection database. |
 # +-------------------------------+
@@ -147,11 +143,9 @@ ADD_CUSTOM_TARGET("publish" DEPENDS gtkforms-demo COMMAND rm -Rf /tmp/installdir
 ADD_CUSTOM_COMMAND(TARGET "publish" COMMAND mkdir -p /tmp/installdir)
 ADD_CUSTOM_COMMAND(TARGET "publish" COMMAND make install DESTDIR=/tmp/installdir)
 
-#FIND_PROGRAM (FPM fpm)
-#ADD_CUSTOM_COMMAND (TARGET "publish" COMMAND ${FPM} -f -s dir -t deb -n libtiliae -v ${PROJECT_VERSION} -C /tmp/installdir/ -p libtiliae_VERSION_ARCH.deb -d 'libmxml1 >= 2.8' usr/lib)
-#ADD_CUSTOM_COMMAND (TARGET "publish" COMMAND ${FPM} -f -s dir -t deb -n libtiliae-dev -v ${PROJECT_VERSION} -C /tmp/installdir/ -p libtiliae-dev_VERSION_ARCH.deb -d 'libtiliae = ${PROJECT_VERSION}' usr/include)
-#FIND_PROGRAM (DPKGSIG dpkg-sig)
-#ADD_CUSTOM_COMMAND (TARGET "publish" COMMAND ${DPKGSIG} -k 9EDE3F68 -s builder *.deb)
-#FIND_PROGRAM (SCP scp)
-#ADD_CUSTOM_COMMAND (TARGET "publish" COMMAND ${SCP} libtiliae_${PROJECT_VERSION}_amd64.deb iwasz@iwasz.pl:/home/iwasz/domains/iwasz.pl/public_html/deb/)
-#ADD_CUSTOM_COMMAND (TARGET "publish" COMMAND ${SCP} libtiliae-dev_${PROJECT_VERSION}_amd64.deb iwasz@iwasz.pl:/home/iwasz/domains/iwasz.pl/public_html/deb/)
+FIND_PROGRAM (FPM fpm)
+ADD_CUSTOM_COMMAND (TARGET "publish" COMMAND ${FPM} -f -s dir -t deb -n gtkforms-demo -v ${PROJECT_VERSION} -C /tmp/installdir/ -p gtkforms-demo_VERSION_ARCH.deb -d 'libgtkforms >= 0.9' usr)
+FIND_PROGRAM (DPKGSIG dpkg-sig)
+ADD_CUSTOM_COMMAND (TARGET "publish" COMMAND ${DPKGSIG} -k 9EDE3F68 -s builder *.deb)
+FIND_PROGRAM (SCP scp)
+ADD_CUSTOM_COMMAND (TARGET "publish" COMMAND ${SCP} gtkforms-demo_${PROJECT_VERSION}_amd64.deb iwasz@iwasz.pl:/home/iwasz/domains/iwasz.pl/public_html/deb/)

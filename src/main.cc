@@ -21,7 +21,7 @@ int main (int argc, char **argv)
         srand (time (0));
         gtk_init (&argc, &argv);
         GtkForms::App app;
-        app.init ("../src/config.xml", "mainController", {"../src", ".", "../share/gtkforms-demo"});
+        app.init ("config.xml", "mainController", {"../src", ".", "/usr/share/gtkforms-demo"});
         gtk_main ();
 }
 
