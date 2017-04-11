@@ -25,6 +25,7 @@
 
     <DemoCategory add-to="demoCategories" name="Assorted" description="Some of my tests">
       <Demo add-to="demos" name="addNode" description="Add node dialog for my data-flow app" controllerName="addNodeController" />
+      <Demo add-to="demos" name="openFile" description="Signal adapter for file dialogs" controllerName="openFileController" />
     </DemoCategory>
   </MainController>
 

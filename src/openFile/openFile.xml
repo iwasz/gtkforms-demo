@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+  <OpenFileController id="openFileController"/>
+
+  <BuilderView id="openFileView" file="openFile/openFileView.ui" loadWholeFile="true">
+<!--    <RowActivatedAdapter add-to="signalAdapters" columnNumber="0" />-->
+  </BuilderView>
+</beans>

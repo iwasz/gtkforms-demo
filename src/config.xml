@@ -23,4 +23,5 @@
   <import resource="simpleTreeListStore2/simpleTreeListStore2.xml" />
   <import resource="simpleTreeListStore3/simpleTreeListStore3.xml" />
   <import resource="addNode/addNode.xml" />
+  <import resource="openFile/openFile.xml" />
 </beans>

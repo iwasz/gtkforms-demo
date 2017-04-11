@@ -819,6 +819,18 @@ void createReflectionDatabase_gtkFormsDemo ()
 			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <AddNodeTableFilterMapping, void>::Level1Wrapper::newConstructorPointer ()));
 		}
 	}
+	{
+		Class *clazz = new Class ("OpenFileController", typeid (OpenFileController &), new Reflection::PtrDeleter <OpenFileController>);
+		if (!Manager::add (clazz)) {
+			delete clazz;
+		}
+		else {
+			clazz->addBaseClassName ("AbstractController");
+			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <OpenFileController, void>::Level1Wrapper::newConstructorPointer ()));
+			clazz->addMethod (new Method ("onStart", createMethodWrapper (&OpenFileController::onStart)));
+			clazz->addMethod (new Method ("onOk", createMethodWrapper (&OpenFileController::onOk)));
+		}
+	}
 }
 
 struct Sentinel_gtkFormsDemo {
