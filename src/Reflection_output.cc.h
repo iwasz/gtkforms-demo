@@ -828,7 +828,7 @@ void createReflectionDatabase_gtkFormsDemo ()
 			clazz->addBaseClassName ("AbstractController");
 			clazz->addConstructor (new Constructor (Reflection::ConstructorPointerWrapper2 <OpenFileController, void>::Level1Wrapper::newConstructorPointer ()));
 			clazz->addMethod (new Method ("onStart", createMethodWrapper (&OpenFileController::onStart)));
-			clazz->addMethod (new Method ("onOk", createMethodWrapper (&OpenFileController::onOk)));
+			clazz->addMethod (new Method ("onResponse", createMethodWrapper (&OpenFileController::onResponse)));
 		}
 	}
 }

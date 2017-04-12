@@ -21,7 +21,7 @@ public:
         virtual ~OpenFileController () {}
 
         virtual GtkForms::ViewsToOpen onStart ();
-        void onOk (std::string const &path);
+        void onResponse (int responseId, std::string const &path);
 };
 
 #endif /* MainController_H_ */

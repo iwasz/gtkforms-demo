@@ -5,6 +5,7 @@
   <object class="GtkFileChooserDialog" id="openFileView">
     <property name="can_focus">False</property>
     <property name="type_hint">dialog</property>
+    <signal name="response" handler="$controller.onResponse(%0, %1)" swapped="no"/>
     <child internal-child="vbox">
       <object class="GtkBox">
         <property name="can_focus">False</property>
@@ -50,13 +51,22 @@
           </packing>
         </child>
         <child>
-          <placeholder/>
+          <object class="GtkLabel" id="&gt;debugInfo">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">label</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
         </child>
       </object>
     </child>
     <action-widgets>
       <action-widget response="-6">button1</action-widget>
-      <action-widget response="-5">button2</action-widget>
+      <action-widget response="-3">button2</action-widget>
     </action-widgets>
   </object>
 </interface>

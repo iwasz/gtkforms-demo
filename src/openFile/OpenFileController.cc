@@ -12,11 +12,18 @@
 
 static src::logger_mt &lg = logger::get ();
 
-GtkForms::ViewsToOpen OpenFileController::onStart()
-{
-        return "openFileView";
-}
+GtkForms::ViewsToOpen OpenFileController::onStart () { return "openFileView"; }
 
 /*****************************************************************************/
 
-void OpenFileController::onOk (std::string const &path) {}
+void OpenFileController::onResponse (int responseId, std::string const &path)
+{
+        if (responseId == GTK_RESPONSE_ACCEPT) {
+                set ("debugInfo", Core::Variant (path));
+        }
+        else {
+                set ("debugInfo", Core::Variant ("CANCEL clicked"));
+        }
+
+        refresh ("");
+}
