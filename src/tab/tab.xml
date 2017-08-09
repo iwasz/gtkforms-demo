@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans>
-  <DummyController id="tabController" view="tabView" />
+  <DummyController id="tabController" view="tabView" alsoOpen="tabContents1Controller,tabContents2Controller,tabContents3Controller" />
   <BuilderView id="tabView" file="tab/tabView.ui" />
+
+  <DummyController id="tabContents1Controller" view="tabContents1View->notebook" />
+  <BuilderView id="tabContents1View" file="tab/tabView.ui" />
+
+  <DummyController id="tabContents2Controller" view="tabContents2View->notebook" />
+  <BuilderView id="tabContents2View" file="tab/tabView.ui" />
+
+  <DummyController id="tabContents3Controller" view="tabContents3View->notebook" />
+  <BuilderView id="tabContents3View" file="tab/tabView.ui" />
 </beans>

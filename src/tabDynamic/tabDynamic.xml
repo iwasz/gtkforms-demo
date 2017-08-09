@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+  <DummyController id="tabDynamicController" view="tabDynamicView" />
+  <BuilderView id="tabDynamicView" file="tabDynamic/tabDynamicView.ui" />
+
+  <DummyController scope="prototype" deleteOnClose="true" id="tabDynamicContentsController" view="tabDynamicContentsView->notebook" />
+  <BuilderView scope="prototype" id="tabDynamicContentsView" file="tabDynamic/tabDynamicView.ui" />
+</beans>

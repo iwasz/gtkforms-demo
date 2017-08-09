@@ -569,6 +569,8 @@ void createReflectionDatabase_gtkFormsDemo ()
 			clazz->addMethod (new Method ("replace", createMethodWrapper (&GtkForms::AbstractController::replace)));
 			clazz->addMethod (new Method ("getName", createMethodWrapper (&GtkForms::AbstractController::getName)));
 			clazz->addMethod (new Method ("contId", createMethodWrapper (&GtkForms::AbstractController::contId)));
+			clazz->addMethod (new Method ("isDeleteOnClose", createMethodWrapper (&GtkForms::AbstractController::isDeleteOnClose)));
+			clazz->addMethod (new Method ("setDeleteOnClose", createMethodWrapper (&GtkForms::AbstractController::setDeleteOnClose)));
 			clazz->addMethod (new Method ("findByName", createMethodWrapper (&GtkForms::AbstractController::findByName)));
 			clazz->addMethod (new Method ("validate", createMethodWrapper (&GtkForms::AbstractController::validate)));
 			clazz->addMethod (new Method ("getValidators", createMethodWrapper (&GtkForms::AbstractController::getValidators)));

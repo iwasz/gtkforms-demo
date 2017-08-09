@@ -4,8 +4,9 @@
     <DemoCategory add-to="demoCategories" name="Layout" description="Managing windows, nesting widgets">
       <Demo add-to="demos" name="info" description="Simple window with a label" controllerName="infoController" />
       <Demo add-to="demos" name="otherMain" description="Window which replaces this one" controllerName="otherMainController" replace="true" />
-      <Demo add-to="demos" name="wizardContainer" description="Wizard / reatore like" controllerName="wizardContainerController"/>
-      <Demo add-to="demos" name="tab" description="Tabs example (todo)" controllerName="tabController" />
+      <Demo add-to="demos" name="wizardContainer" description="Wizard / creatore like" controllerName="wizardContainerController"/>
+      <Demo add-to="demos" name="tab" description="Predefined set of tabs" controllerName="tabController" />
+      <Demo add-to="demos" name="tabDynamic" description="Dynamic creation of new tabs" controllerName="tabDynamicController" />
     </DemoCategory>
 
     <DemoCategory add-to="demoCategories" name="Submission" description="Dealing with forms, converting model to view and vice versa">

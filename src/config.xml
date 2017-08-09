@@ -24,4 +24,5 @@
   <import resource="simpleTreeListStore3/simpleTreeListStore3.xml" />
   <import resource="addNode/addNode.xml" />
   <import resource="openFile/openFile.xml" />
+  <import resource="tabDynamic/tabDynamic.xml" />
 </beans>
