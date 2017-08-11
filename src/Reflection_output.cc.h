@@ -358,6 +358,8 @@ void createReflectionDatabase_gtkFormsDemo ()
 			clazz->addMethod (new Method ("preSubmit", createMethodWrapper (&GtkForms::IPageDecorator::preSubmit)));
 			clazz->addMethod (new Method ("postRefresh", createMethodWrapper (&GtkForms::IPageDecorator::postRefresh)));
 			clazz->addMethod (new Method ("preClose", createMethodWrapper (&GtkForms::IPageDecorator::preClose)));
+			clazz->addMethod (new Method ("preReparent", createMethodWrapper (&GtkForms::IPageDecorator::preReparent)));
+			clazz->addMethod (new Method ("postReparent", createMethodWrapper (&GtkForms::IPageDecorator::postReparent)));
 		}
 	}
 	{
@@ -522,6 +524,8 @@ void createReflectionDatabase_gtkFormsDemo ()
 			clazz->addMethod (new Method ("getController", createMethodWrapper (&GtkForms::AbstractView::getController)));
 			clazz->addMethod (new Method ("setController", createMethodWrapper (&GtkForms::AbstractView::setController)));
 			clazz->addMethod (new Method ("setConfig", createMethodWrapper (&GtkForms::AbstractView::setConfig)));
+			clazz->addMethod (new Method ("isDeleteOnClose", createMethodWrapper (&GtkForms::AbstractView::isDeleteOnClose)));
+			clazz->addMethod (new Method ("setDeleteOnClose", createMethodWrapper (&GtkForms::AbstractView::setDeleteOnClose)));
 		}
 	}
 	{

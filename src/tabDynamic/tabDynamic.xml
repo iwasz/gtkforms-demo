@@ -3,6 +3,12 @@
   <DummyController id="tabDynamicController" view="tabDynamicView" />
   <BuilderView id="tabDynamicView" file="tabDynamic/tabDynamicView.ui" />
 
-  <DummyController scope="prototype" deleteOnClose="true" id="tabDynamicContentsController" view="tabDynamicContentsView->notebook" />
-  <BuilderView scope="prototype" id="tabDynamicContentsView" file="tabDynamic/tabDynamicView.ui" />
+  <DummyController scope="prototype" deleteOnClose="true" id="tabDynamicContentsController" view="tabDynamicContentsView->notebook" alsoOpen="tabDynamicLabelController" />
+  <BuilderView scope="prototype" deleteOnClose="true" id="tabDynamicContentsView" file="tabDynamic/tabDynamicView.ui">
+<!--    <TabLabelDecorator add-to="decorators" />-->
+  </BuilderView>
+
+  <DummyController scope="prototype" deleteOnClose="true" id="tabDynamicLabelController" view="ttt->notebook" />
+  <BuilderView scope="prototype" deleteOnClose="true" id="ttt" file="tabDynamic/tabDynamicView.ui">
+
 </beans>
